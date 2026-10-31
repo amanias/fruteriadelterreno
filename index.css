@@ -1,63 +1,85 @@
-/* Variables modernas y reset */
+/* Reseteo moderno y tipografía fluida global */
 :root {
-    /* CLAMP MÁGICO: mínimo, valor dinámico (pantalla), máximo */
-    --size-h1: clamp(2rem, 1rem + 5vw, 4rem);
-    --size-p: clamp(1.1rem, 0.9rem + 1vw, 1.4rem);
+    /* Tipografía fluida matemática de última generación */
+    --fuente-titulo: clamp(2.25rem, 1.25rem + 5vw, 4.5rem);
+    --fuente-parrafo: clamp(1.1rem, 0.95rem + 0.75vw, 1.35rem);
+    
+    /* Espaciados fluidos */
+    --padding-tarjeta: clamp(1.5rem, 6vw, 3.5rem);
 }
 
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Centrado perfecto con CSS Grid sin necesidad de flex/márgenes extra */
 body {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
+    min-height: 100dvh; /* dvh corrige el problema de la barra de navegación en móviles */
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+/* El truco del Fondo de Windows nativo en HTML */
+.fondo-pantalla {
+    position: absolute;
+    inset: 0; /* Cubre toda la pantalla */
+    z-index: -1;
+}
+
+.fondo-pantalla img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Centrado y recorte inteligente estilo Windows */
+    object-position: center;
+}
+
+/* Interfaz moderna con legibilidad garantizada */
+.tarjeta-presentacion {
+    background: color-mix(in srgb, #000000 55%, transparent);
+    padding: var(--padding-tarjeta);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    max-width: min(90%, 540px); /* Responsividad perfecta sin romper el diseño */
+    width: 100%;
     
-    /* El fondo de Windows adaptivo */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    /* Efecto esmerilado por tarjeta gráfica */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     
-    /* Imagen por defecto (móvil) */
-    background-image: url('fondo-movil.jpg');
+    /* Animación sutil de entrada */
+    animation: aparecer 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 🖼️ Única media query necesaria hoy en día: solo para cambiar el archivo de imagen pesado */
-@media (min-width: 768px) {
-    body {
-        background-image: url('fondo-desktop.jpg');
-    }
-}
-
-/* Caja de texto con CSS Moderno (Efecto Cristal de 2026) */
-.contenedor {
-    background: color-mix(in srgb, black 60%, transparent); /* Sintaxis moderna para transparencias */
-    padding: clamp(1.5rem, 5vw, 3rem); /* El espaciado interior también es responsivo */
-    border-radius: 16px;
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    max-width: 90%;
-    width: 500px;
-}
-
-/* Fuentes fluidas sin complicaciones */
 h1 {
-    font-size: var(--size-h1);
-    line-height: 1.2;
-    font-weight: 800;
+    font-size: var(--fuente-titulo);
+    font-weight: 850; /* Tipografías variables con grosores ultra-precisos */
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #f8fafc;
 }
 
 p {
-    font-size: var(--size-p);
-    margin-top: 1rem;
-    text-wrap: pretty; /* Evita que quede una sola palabra colgada en una línea nueva */
-    opacity: 0.9;
+    font-size: var(--fuente-parrafo);
+    line-height: 1.5;
+    margin-top: 1.25rem;
+    color: #e2e8f0;
+    text-wrap: pretty; /* Distribución de texto balanceada sin viudas */
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }

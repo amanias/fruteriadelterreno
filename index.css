@@ -1,7 +1,5 @@
 :root {
     background-color: #2d3718; 
-    
-    /* Mantenemos tu tipografía fluida matemática */
     --fuente-titulo: clamp(2rem, 1rem + 6vmin, 4.25rem);
     --fuente-parrafo: clamp(1.05rem, 0.85rem + 1.5vmin, 1.35rem);
     --padding-tarjeta: clamp(1.25rem, 5vmin, 3rem);
@@ -21,40 +19,43 @@ body {
     color: #ffffff;
     background-color: #2d3718;
     
-    /* 🔄 RESPONSIVO REAL: En móvil bloquea el scroll innecesario, 
-       pero si en PC se hace zoom, permite scroll dinámico para no cortar nada */
-    overflow-y: auto; 
+    /* 🔒 SOLUCIÓN AL SCROLL HORIZONTAL:
+       Impedimos estrictamente que nada se salga por la derecha de la pantalla,
+       pero permitimos scroll vertical si aumentas mucho el zoom para poder leer abajo. */
     overflow-x: hidden;
-    padding: 2rem 1rem; /* Espacio de cortesía para que la tarjeta nunca toque los bordes del PC */
+    overflow-y: auto; 
+    padding: 2rem 1rem; 
 }
 
-/* La imagen de fondo fija en su sitio */
+/* Imagen de fondo fija corregida (usando 100% en vez de 100vw para evitar empujar el diseño) */
 .fondo-pantalla {
     position: fixed;
     inset: 0;
-    width: 100vw;
-    height: 100dvh;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
-    z-index: -2; /* Lo bajamos a -2 para que no tape nada */
+    z-index: -2; 
     pointer-events: none;
 }
 
-/* Tarjeta optimizada contra el zoom del navegador */
-.tarjeta-presentation, .tarjeta-presentacion {
+/* Una sola clase limpia sin comas ni textos duplicados */
+.tarjeta-presentacion {
     background: color-mix(in srgb, #000000 60%, transparent);
     padding: var(--padding-tarjeta);
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.12);
-    max-width: 500px; /* Ancho fijo máximo en PC */
-    width: 100%;      /* Se encoge de forma fluida en pantallas estrechas */
+    
+    /* 📐 CONTROL DE ANCHO PROFESIONAL:
+       Ocupa el 100% de la pantalla en móviles estrechos, pero nunca pasará de 500px en PC.
+       Al usar max-width combinado con width: 100%, el cuadro se encoge solo y jamás genera scroll a la derecha. */
+    width: 100%;
+    max-width: 500px; 
+    
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     z-index: 1;
     position: relative;
-    
-    /* Evita que los textos se queden pegados si se reduce al mínimo la pantalla */
-    min-width: 280px; 
 }
 
 h1 {
@@ -73,13 +74,11 @@ p {
     text-wrap: pretty;
 }
 
-/* 🛡️ TRUCO CONTRA EL SELLO DE NETLIFY
-   Forzamos a que cualquier etiqueta inyectada por Netlify se vaya abajo del todo 
-   a la esquina izquierda y con un z-index bajo para que tu tarjeta flote por encima */
+/* Ocultar el molesto sello flotante moviéndolo abajo del todo */
 [id*="netlify"], [class*="netlify"], div[style*="position: fixed"] {
     bottom: 10px !important;
     right: auto !important;
     left: 10px !important;
     z-index: -1 !important;
-    opacity: 0.3; /* Lo difuminamos para que no llame la atención */
+    opacity: 0.1;
 }

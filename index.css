@@ -1,7 +1,7 @@
 :root {
-    /* Mantenemos tu color verde oliva corporativo de base */
     background-color: #2d3718; 
     
+    /* Mantenemos tu tipografía fluida matemática */
     --fuente-titulo: clamp(2rem, 1rem + 6vmin, 4.25rem);
     --fuente-parrafo: clamp(1.05rem, 0.85rem + 1.5vmin, 1.35rem);
     --padding-tarjeta: clamp(1.25rem, 5vmin, 3rem);
@@ -21,10 +21,14 @@ body {
     color: #ffffff;
     background-color: #2d3718;
     
-    /* 🔒 ADIÓS SCROLL: Congela la pantalla en PC y móvil para que todo encaje */
-    overflow: hidden; 
+    /* 🔄 RESPONSIVO REAL: En móvil bloquea el scroll innecesario, 
+       pero si en PC se hace zoom, permite scroll dinámico para no cortar nada */
+    overflow-y: auto; 
+    overflow-x: hidden;
+    padding: 2rem 1rem; /* Espacio de cortesía para que la tarjeta nunca toque los bordes del PC */
 }
 
+/* La imagen de fondo fija en su sitio */
 .fondo-pantalla {
     position: fixed;
     inset: 0;
@@ -32,20 +36,25 @@ body {
     height: 100dvh;
     object-fit: cover;
     object-position: center;
-    z-index: -1;
+    z-index: -2; /* Lo bajamos a -2 para que no tape nada */
     pointer-events: none;
 }
 
-.tarjeta-presentacion {
+/* Tarjeta optimizada contra el zoom del navegador */
+.tarjeta-presentation, .tarjeta-presentacion {
     background: color-mix(in srgb, #000000 60%, transparent);
     padding: var(--padding-tarjeta);
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.12);
-    max-width: min(90%, 500px);
-    width: 100%;
+    max-width: 500px; /* Ancho fijo máximo en PC */
+    width: 100%;      /* Se encoge de forma fluida en pantallas estrechas */
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    animation: aparecer 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    z-index: 1;
+    position: relative;
+    
+    /* Evita que los textos se queden pegados si se reduce al mínimo la pantalla */
+    min-width: 280px; 
 }
 
 h1 {
@@ -64,13 +73,13 @@ p {
     text-wrap: pretty;
 }
 
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: scale(0.97) translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
+/* 🛡️ TRUCO CONTRA EL SELLO DE NETLIFY
+   Forzamos a que cualquier etiqueta inyectada por Netlify se vaya abajo del todo 
+   a la esquina izquierda y con un z-index bajo para que tu tarjeta flote por encima */
+[id*="netlify"], [class*="netlify"], div[style*="position: fixed"] {
+    bottom: 10px !important;
+    right: auto !important;
+    left: 10px !important;
+    z-index: -1 !important;
+    opacity: 0.3; /* Lo difuminamos para que no llame la atención */
 }

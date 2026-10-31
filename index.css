@@ -1,11 +1,8 @@
-/* Reseteo moderno y tipografía fluida global */
 :root {
-    /* Tipografía fluida matemática de última generación */
-    --fuente-titulo: clamp(2.25rem, 1.25rem + 5vw, 4.5rem);
-    --fuente-parrafo: clamp(1.1rem, 0.95rem + 0.75vw, 1.35rem);
-    
-    /* Espaciados fluidos */
-    --padding-tarjeta: clamp(1.5rem, 6vw, 3.5rem);
+    background-color: #2d3718; 
+    --fuente-titulo: clamp(2rem, 1rem + 6vmin, 4.25rem);
+    --fuente-parrafo: clamp(1.05rem, 0.85rem + 1.5vmin, 1.35rem);
+    --padding-tarjeta: clamp(1.25rem, 5vmin, 3rem);
 }
 
 *, *::before, *::after {
@@ -14,52 +11,46 @@
     box-sizing: border-box;
 }
 
-/* Centrado perfecto con CSS Grid sin necesidad de flex/márgenes extra */
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    min-height: 100vh;
-    min-height: 100dvh; /* dvh corrige el problema de la barra de navegación en móviles */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100dvh;
     display: grid;
     place-items: center;
     color: #ffffff;
-    overflow: hidden;
-    position: relative;
+    background-color: #2d3718;
+    
+    /* ⚠️ IMPORTANTE: Permitimos el scroll vertical si el contenido crece */
+    overflow-y: auto; 
+    padding: 2rem 0; /* Margen arriba y abajo para que la tarjeta no pegue en los bordes */
 }
 
-/* El truco del Fondo de Windows nativo en HTML */
+/* 🖼️ EL FONDO CUADRADO PERFECTO Fijo */
 .fondo-pantalla {
-    position: absolute;
-    inset: 0; /* Cubre toda la pantalla */
-    z-index: -1;
-}
-
-.fondo-pantalla img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Centrado y recorte inteligente estilo Windows */
+    position: fixed; /* Mantiene la foto clavada en la pantalla, el scroll no la mueve */
+    inset: 0;
+    width: 100vw;
+    height: 100dvh;
+    object-fit: cover; /* Centra y recorta tu imagen de 1920x1920 automáticamente */
     object-position: center;
+    z-index: -1;
+    pointer-events: none;
 }
 
-/* Interfaz moderna con legibilidad garantizada */
 .tarjeta-presentacion {
-    background: color-mix(in srgb, #000000 55%, transparent);
+    background: color-mix(in srgb, #000000 60%, transparent);
     padding: var(--padding-tarjeta);
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.12);
-    max-width: min(90%, 540px); /* Responsividad perfecta sin romper el diseño */
+    max-width: min(90%, 600px); /* Un pelín más ancha para admitir más contenido */
     width: 100%;
-    
-    /* Efecto esmerilado por tarjeta gráfica */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    
-    /* Animación sutil de entrada */
-    animation: aparecer 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    animation: aparecer 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 h1 {
     font-size: var(--fuente-titulo);
-    font-weight: 850; /* Tipografías variables con grosores ultra-precisos */
+    font-weight: 850;
     letter-spacing: -0.03em;
     line-height: 1.1;
     color: #f8fafc;
@@ -68,15 +59,15 @@ h1 {
 p {
     font-size: var(--fuente-parrafo);
     line-height: 1.5;
-    margin-top: 1.25rem;
+    margin-top: 1rem;
     color: #e2e8f0;
-    text-wrap: pretty; /* Distribución de texto balanceada sin viudas */
+    text-wrap: pretty;
 }
 
 @keyframes aparecer {
     from {
         opacity: 0;
-        transform: scale(0.96) translateY(8px);
+        transform: scale(0.97) translateY(10px);
     }
     to {
         opacity: 1;

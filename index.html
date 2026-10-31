@@ -2,19 +2,20 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Frutería del Terreno a Casa</title>
+    
+    <!-- 🚀 DIRECTIVAS PARA PWA Y PANTALLA COMPLETA (Standalone) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2d3718"> <!-- Une visualmente el notch del móvil con tu fondo oliva -->
+
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
-    <!-- Contenedor del fondo responsivo optimizado de alto rendimiento -->
-    <picture class="fondo-pantalla">
-        <source srcset="img/fondo-escritorio.avif" media="(min-width: 768px)" type="image/avif">
-        <img src="img/fondo-movil.avif" alt="" decoding="async" fetchpriority="high">
-    </picture>
+    <img src="img/fondo.avif" alt="" class="fondo-pantalla" decoding="async" fetchpriority="high">
 
-    <!-- Contenido Principal -->
     <main class="tarjeta-presentacion">
         <h1>Frutería del Terreno</h1>
         <p>Próximamente tu tienda de confianza online con reparto local y pago instantáneo.</p>

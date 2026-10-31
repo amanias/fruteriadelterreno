@@ -47,6 +47,8 @@ body {
     overflow-wrap: break-word;
     text-wrap: pretty;        /* Evita palabras huérfanas al final del párrafo */
     hyphens: auto;            /* Añade guion si corta la palabra */
+
+    text-align: center;
 }
 
 /* ==========================================================================

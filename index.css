@@ -1,5 +1,5 @@
 :root {
-    /* background-color: #2d3718;  */
+    /* El color oliva se queda como respaldo seguro detrás de las uvas en el body */
     --fuente-titulo: clamp(2rem, 1rem + 6vmin, 4.25rem);
     --fuente-parrafo: clamp(1.05rem, 0.85rem + 1.5vmin, 1.35rem);
     --padding-tarjeta: clamp(1.25rem, 5vmin, 3rem);
@@ -8,7 +8,7 @@
 *, *::before, *::after {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Fuerza a que los paddings no estiren la tarjeta hacia los lados */
 }
 
 body {
@@ -17,45 +17,35 @@ body {
     display: grid;
     place-items: center;
     color: #ffffff;
-    /* background-color: #2d3718; */
     
-    /* 🔒 SOLUCIÓN AL SCROLL HORIZONTAL:
-       Impedimos estrictamente que nada se salga por la derecha de la pantalla,
-       pero permitimos scroll vertical si aumentas mucho el zoom para poder leer abajo. */
+    /* 🔒 BLINDAJE CONTRA EL SCROLL HORIZONTAL */
     overflow-x: hidden;
     overflow-y: auto; 
-    padding: 2rem 1rem; 
+    padding: 2rem 1rem; /* Espaciado mínimo para que nunca toque los bordes del PC */
+
+    /* 🖼️ EL FONDO DE LAS UVAS CENTRALIZADO EN EL CSS DIRECTAMENTE */
+    background: #2d3718 url('img/fondo.avif') no-repeat center center fixed;
+    background-size: cover; /* Centrado y recorte estilo Windows automático por hardware */
 }
 
-/* Imagen de fondo fija corregida (usando 100% en vez de 100vw para evitar empujar el diseño) */
-.fondo-pantalla {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: -2; 
-    pointer-events: none;
-}
-
-/* Una sola clase limpia sin comas ni textos duplicados */
+/* Tarjeta elástica corregida para ventanas ultra-estrechas */
 .tarjeta-presentacion {
     background: color-mix(in srgb, #000000 60%, transparent);
     padding: var(--padding-tarjeta);
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     
-    /* 📐 CONTROL DE ANCHO PROFESIONAL:
-       Ocupa el 100% de la pantalla en móviles estrechos, pero nunca pasará de 500px en PC.
-       Al usar max-width combinado con width: 100%, el cuadro se encoge solo y jamás genera scroll a la derecha. */
-    width: 100%;
+    /* 📐 LA SOLUCIÓN AL FALLO DEL PC:
+       Usamos un ancho del 95% para pantallas enanas, pero limitado con un tope máximo 
+       de 500px en monitores grandes. Así la tarjeta jamás empuja el diseño hacia la derecha. */
+    width: 95%;
     max-width: 500px; 
     
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    z-index: 1;
-    position: relative;
+    
+    /* Forzamos a que el navegador distribuya bien el bloque en el centro */
+    margin: 0 auto; 
 }
 
 h1 {
@@ -64,6 +54,7 @@ h1 {
     letter-spacing: -0.03em;
     line-height: 1.1;
     color: #f8fafc;
+    text-wrap: balance; /* Evita que el título se corte de forma fea al estrechar */
 }
 
 p {
@@ -74,7 +65,7 @@ p {
     text-wrap: pretty;
 }
 
-/* Ocultar el molesto sello flotante moviéndolo abajo del todo */
+/* Mitigar el cartel flotante de Netlify mandándolo al fondo */
 [id*="netlify"], [class*="netlify"], div[style*="position: fixed"] {
     bottom: 10px !important;
     right: auto !important;

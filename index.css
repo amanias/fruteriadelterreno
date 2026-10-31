@@ -1,0 +1,63 @@
+/* Variables modernas y reset */
+:root {
+    /* CLAMP MÁGICO: mínimo, valor dinámico (pantalla), máximo */
+    --size-h1: clamp(2rem, 1rem + 5vw, 4rem);
+    --size-p: clamp(1.1rem, 0.9rem + 1vw, 1.4rem);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    
+    /* El fondo de Windows adaptivo */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    
+    /* Imagen por defecto (móvil) */
+    background-image: url('fondo-movil.jpg');
+}
+
+/* 🖼️ Única media query necesaria hoy en día: solo para cambiar el archivo de imagen pesado */
+@media (min-width: 768px) {
+    body {
+        background-image: url('fondo-desktop.jpg');
+    }
+}
+
+/* Caja de texto con CSS Moderno (Efecto Cristal de 2026) */
+.contenedor {
+    background: color-mix(in srgb, black 60%, transparent); /* Sintaxis moderna para transparencias */
+    padding: clamp(1.5rem, 5vw, 3rem); /* El espaciado interior también es responsivo */
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 90%;
+    width: 500px;
+}
+
+/* Fuentes fluidas sin complicaciones */
+h1 {
+    font-size: var(--size-h1);
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+p {
+    font-size: var(--size-p);
+    margin-top: 1rem;
+    text-wrap: pretty; /* Evita que quede una sola palabra colgada en una línea nueva */
+    opacity: 0.9;
+}

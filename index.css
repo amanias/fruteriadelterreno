@@ -1,5 +1,5 @@
 :root {
-    background-color: #2d3718; 
+    /* background-color: #2d3718;  */
     --fuente-titulo: clamp(2rem, 1rem + 6vmin, 4.25rem);
     --fuente-parrafo: clamp(1.05rem, 0.85rem + 1.5vmin, 1.35rem);
     --padding-tarjeta: clamp(1.25rem, 5vmin, 3rem);
@@ -17,7 +17,7 @@ body {
     display: grid;
     place-items: center;
     color: #ffffff;
-    background-color: #2d3718;
+    /* background-color: #2d3718; */
     
     /* 🔒 SOLUCIÓN AL SCROLL HORIZONTAL:
        Impedimos estrictamente que nada se salga por la derecha de la pantalla,

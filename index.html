@@ -21,6 +21,19 @@
 
     </main>
 
+    <script>
+    // Esperamos a que la página cargue completa
+    window.addEventListener('DOMContentLoaded', () => {
+        // Buscamos cualquier elemento inyectado que contenga la palabra netlify
+        setTimeout(() => {
+            const sello = document.querySelector('[id*="netlify"]') || document.querySelector('[class*="netlify"]');
+            if (sello) {
+                sello.style.setProperty('display', 'none', 'important');
+            }
+        }, 300); // Pequeño retraso para pillar al script inyectado in fraganti
+    });
+</script>
+
 
 </body>
 </html>

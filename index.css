@@ -82,13 +82,6 @@ body {
 }
 
 /* Ocultar el sello de Netlify con la clase .nl-wrap que ellos mismos añaden antes de mi web */
-div[id*="netlify"], 
-div[class*="nl-wrap"], 
-.nl-wrap {
+#nl-badge-frame {
     display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    height: 0 !important;
-    width: 0 !important;
 }

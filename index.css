@@ -81,11 +81,7 @@ body {
     color: #e2e8f0;
 }
 
-/* Ocultar el sello de Netlify enviándolo al fondo */
-[id*="netlify"], [class*="netlify"], div[style*="position: fixed"] {
-    bottom: 10px !important;
-    right: auto !important;
-    left: 10px !important;
-    z-index: -1 !important;
-    opacity: 0.1;
+/* Ocultar el sello de Netlify con la clase .nl-wrap que ellos mismos añaden antes de mi web */
+.nl-wrap {
+    display: none !important;
 }

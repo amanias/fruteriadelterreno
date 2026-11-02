@@ -42,7 +42,7 @@ body {
 /* ==========================================================================
    🔒 CLASE DE SEGURIDAD EXCLUSIVA CONTRA EL DESBORDE DE LA DERECHA
    ========================================================================== */
-.elastico {
+.texto {
     word-break: break-word;   /* Rompe palabras largas si el contenedor es enano */
     overflow-wrap: break-word;
     text-wrap: pretty;        /* Evita palabras huérfanas al final del párrafo */

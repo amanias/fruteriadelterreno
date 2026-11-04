@@ -1,58 +1,69 @@
-:root {
-    --color-fondo-seguridad: #2d3718;
-}
-
+/* ==========================================================================
+   1. RESET TOTAL DE CONFIANZA
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ==========================================
-   EL FONDO DINÁMICO (Perfecto para Tablets/Móviles que giran)
-   ========================================== */
-body {
-    background-color: var(--color-fondo-seguridad); 
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    
-    /* UNIDADES DINÁMICAS 2027: Se adaptan al girar el dispositivo y absorben las barras del navegador */
+/* Forzamos a que el lienzo ocupe todo el espacio dinámico visible */
+html, body {
     width: 100dvw;
     min-height: 100dvh;
-    
-    /* Forzamos a que el área de renderizado tenga como mínimo la dimensión más grande disponible */
-    min-width: 100vmax; 
-    
-    /* Centrado absoluto del contenedor flotante */
+}
+
+/* ==========================================================================
+   2. EL FONDO RESPONSIVO (En el body, centrado y proporcional)
+   ========================================================================== */
+body {
+    background-color: #2d3718; /* Tu verde militar de seguridad */
+    background-repeat: no-repeat;
+    background-size: cover;      /* Cubre todo sin deformar la imagen */
+    background-position: center;  /* Centra y recorta lo sobrante al redimensionar */
+    background-attachment: fixed; /* Evita saltos visuales en navegadores móviles */
+
+    /* Centrado absoluto del contenedor flotante en la pantalla */
     display: grid;
-    place-items: center; 
-    padding: 2.5dvi; /* Padding dinámico relativo al inline-size (ancho) */
+    place-items: center;
+    padding: 2rem; /* Margen de seguridad para que la tarjeta no toque los bordes */
 }
 
-/* Carga del AVIF según los rangos modernos de pantalla */
-@media (width <= 768px) {
-    body { background-image: url('img/fondo-movil.avif'); }
+/* Carga la imagen correcta según la orientación real del dispositivo */
+@media (orientation: portrait) {
+    body { background-image: url('fondo-movil.avif'); }
 }
-@media (width > 768px) {
-    body { background-image: url('img/fondo-pc.avif'); }
+@media (orientation: landscape) {
+    body { background-image: url('fondo-pc.avif'); }
 }
 
-/* ==========================================
-   EL CONTENEDOR FLOTANTE CENTRAL
-   ========================================== */
+/* ==========================================================================
+   3. EL CONTENEDOR FLOTANTE (Totalmente elástico)
+   ========================================================================== */
 #app-hero {
-    /* fit-content puro: se encoge y estira según el contenido real */
+    /* Anchura elástica: se adapta a lo que tenga dentro, pero no rompe la pantalla */
     width: fit-content;
-    /* Evita que toque los bordes usando ancho de viewport dinámico */
     max-width: 85dvw; 
     height: auto;
     
-    background: #ffffff;
+    /* Diseño de la tarjeta flotante */
+    background-color: #ffffff;
     padding: 2.5rem;
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Tipografía fluida que escala según el tamaño del dispositivo */
+#app-hero h1 {
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+#app-hero p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #4a4a4a;
 }
 
 /* Ocultar el sello de Netlify con la clase .nl-wrap que ellos mismos añaden antes de mi web */

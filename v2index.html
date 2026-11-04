@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frutería del Terreno - App</title>
+    
+    <!-- Meta etiquetas obligatorias para PWA -->
+    <meta name="theme-color" content="#2d3718">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    
+    <!-- Enlace al archivo de configuración PWA -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Contenedor principal con ID único para el diseño exclusivo de fondo -->
+    <main id="app-hero">
+        <header>
+            <h1>Frutería del Terreno</h1>
+        </header>
+        
+        <section class="contenido-principal">
+            <!-- El contenido de tu app irá aquí -->
+        </section>
+    </main>
+
+    <!-- Registro del Service Worker para funcionamiento Offline de la PWA -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('PWA lista y protegida', reg))
+                    .catch(err => console.error('Fallo en Service Worker', err));
+            });
+        }
+    </script>
+</body>
+</html>

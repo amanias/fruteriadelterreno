@@ -1,0 +1,61 @@
+:root {
+    --color-fondo-seguridad: #2d3718;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   EL FONDO DINÁMICO (Perfecto para Tablets/Móviles que giran)
+   ========================================== */
+body {
+    background-color: var(--color-fondo-seguridad); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+    /* UNIDADES DINÁMICAS 2027: Se adaptan al girar el dispositivo y absorben las barras del navegador */
+    width: 100dvw;
+    min-height: 100dvh;
+    
+    /* Forzamos a que el área de renderizado tenga como mínimo la dimensión más grande disponible */
+    min-width: 100vmax; 
+    
+    /* Centrado absoluto del contenedor flotante */
+    display: grid;
+    place-items: center; 
+    padding: 2.5dvi; /* Padding dinámico relativo al inline-size (ancho) */
+}
+
+/* Carga del AVIF según los rangos modernos de pantalla */
+@media (width <= 768px) {
+    body { background-image: url('img/fondo-movil.avif'); }
+}
+@media (width > 768px) {
+    body { background-image: url('img/fondo-pc.avif'); }
+}
+
+/* ==========================================
+   EL CONTENEDOR FLOTANTE CENTRAL
+   ========================================== */
+#app-hero {
+    /* fit-content puro: se encoge y estira según el contenido real */
+    width: fit-content;
+    /* Evita que toque los bordes usando ancho de viewport dinámico */
+    max-width: 85dvw; 
+    height: auto;
+    
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Ocultar el sello de Netlify con la clase .nl-wrap que ellos mismos añaden antes de mi web */
+#nl-badge-frame {
+    display: none !important;
+}

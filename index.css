@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESET TOTAL DE CONFIANZA
+   1. RESET TOTAL
    ========================================================================== */
 * {
     margin: 0;
@@ -7,64 +7,102 @@
     box-sizing: border-box;
 }
 
-/* Forzamos a que el lienzo ocupe todo el espacio dinámico visible */
 html, body {
     width: 100dvw;
     min-height: 100dvh;
 }
 
 /* ==========================================================================
-   2. EL FONDO RESPONSIVO (En el body, centrado y proporcional)
+   2. EL FONDO DE PANTALLA RESPONSIVO (En el body)
    ========================================================================== */
 body {
-    background-color: #2d3718; /* Tu verde militar de seguridad */
+    background-color: #2d3718; 
     background-repeat: no-repeat;
-    background-size: cover;      /* Cubre todo sin deformar la imagen */
-    background-position: center;  /* Centra y recorta lo sobrante al redimensionar */
-    background-attachment: fixed; /* Evita saltos visuales en navegadores móviles */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 
-    /* Centrado absoluto del contenedor flotante en la pantalla */
+    /* Centrado dinámico absoluto */
     display: grid;
     place-items: center;
-    padding: 2rem; /* Margen de seguridad para que la tarjeta no toque los bordes */
+    padding: 1.5rem; 
 }
 
-/* Carga la imagen correcta según la orientación real del dispositivo */
+/* Carga de la imagen de fondo según cómo se gire la pantalla */
 @media (orientation: portrait) {
     body { background-image: url('img/fondo-movil.avif'); }
 }
 @media (orientation: landscape) {
-    body { background-image: url('img/fondo-pc.avif'); }
+    body { background-image: url('fondo-pc.avif'); }
 }
 
 /* ==========================================================================
-   3. EL CONTENEDOR FLOTANTE (Totalmente elástico)
+   3. EL CONTENEDOR CRISTALINO (Glassmorphism Moderno)
    ========================================================================== */
 #app-hero {
-    /* Anchura elástica: se adapta a lo que tenga dentro, pero no rompe la pantalla */
+    /* Elástico: se adapta al contenido interno con un tope de seguridad */
     width: fit-content;
-    max-width: 85dvw; 
+    max-width: min(460px, 90dvw); 
     height: auto;
     
-    /* Diseño de la tarjeta flotante */
-    background-color: #ffffff;
-    padding: 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    /* Efecto cristal translúcido moderno */
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
+    /* Estructura e iluminación de bordes */
+    padding: 2rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+/* Organización interna del contenido */
+#app-hero > figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
-/* Tipografía fluida que escala según el tamaño del dispositivo */
+/* ==========================================================================
+   4. IMAGEN Y TEXTOS INTEGRADOS
+   ========================================================================== */
 #app-hero h1 {
-    font-size: clamp(1.6rem, 4vw, 2.5rem);
-    color: #1a1a1a;
-    margin-bottom: 1rem;
+    color: #ffffff;
+    font-size: clamp(1.8rem, 6dvw, 2.4rem); /* Fluido: ni enorme en PC ni diminuto en móvil */
+    font-weight: 800;
+    line-height: 1.2;
 }
 
-#app-hero p {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: #4a4a4a;
+#app-hero h2 {
+    color: #e2e8f0;
+    font-size: clamp(1.1rem, 3.5dvw, 1.3rem);
+    font-weight: 400;
+    margin-top: 0.2rem;
+    margin-bottom: 1.5rem; /* Separación con la imagen */
 }
+
+#app-hero img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* El pie de foto que sirve de descripción */
+#app-hero figcaption {
+    margin-top: 1.2rem;
+}
+
+#app-hero figcaption p {
+    color: #f1f5f9;
+    font-size: clamp(0.95rem, 3dvw, 1.1rem);
+    line-height: 1.5;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
 
 /* Ocultar el sello de Netlify con la clase .nl-wrap que ellos mismos añaden antes de mi web */
 #nl-badge-frame {

@@ -30,10 +30,10 @@ body {
 
 /* Restauramos tus fondos reales apuntando a la carpeta img/ */
 @media (orientation: portrait) {
-    body { background-image: url('img/fondo-movil.avif'); }
+    body { background-image: url('img/Afondo-movil.avif'); }
 }
 @media (orientation: landscape) {
-    body { background-image: url('img/fondo-pc.avif'); }
+    body { background-image: url('img/Afondo-pc.avif'); }
 }
 
 /* ==========================================================================

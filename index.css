@@ -1,101 +1,117 @@
 /* ==========================================================================
-   3. EL CONTENEDOR ELÁSTICO E INTELIGENTE
+   1. RESET COMPLETO
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100dvw;
+    min-height: 100dvh;
+}
+
+/* ==========================================================================
+   2. EL FONDO DE LAS UVAS (Corregido con tu carpeta img/)
+   ========================================================================== */
+body {
+    background-color: #2d3718; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    /* Centrado absoluto en la pantalla */
+    display: grid;
+    place-items: center;
+    padding: 2dvh 2dvw; 
+}
+
+/* Restauramos tus fondos reales apuntando a la carpeta img/ */
+@media (orientation: portrait) {
+    body { background-image: url('img/fondo-movil.avif'); }
+}
+@media (orientation: landscape) {
+    body { background-image: url('img/fondo-pc.avif'); }
+}
+
+/* ==========================================================================
+   3. CONTENEDOR ELÁSTICO MAXIMIZADO (Efecto Cristal Moderno)
    ========================================================================== */
 #app-hero {
+    /* Ocupa el máximo espacio disponible sin salirse jamás del viewport */
     width: fit-content;
-    max-width: 90dvw;
+    max-width: 92dvw;
     height: auto;
-    max-height: 85dvh;
+    max-height: 92dvh;
     
-    /* El cristal translúcido */
+    /* Cristal translúcido para fundirse con las uvas de fondo */
     background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     
-    padding: 2.5rem;
-    border-radius: 28px;
+    padding: 2rem;
+    border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    
+    /* Forzamos overflow para que si el contenido es enorme, no rompa la tarjeta */
+    overflow: hidden;
 }
 
-/* ==========================================================================
-   4. DISTRIBUCIÓN ADAPTATIVA (Flexbox Moderno)
-   ========================================================================== */
+/* Estructura en una sola columna elástica */
 #app-hero > figure {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3rem; /* Espacio generoso entre la foto y los textos */
-    width: 100%;
     height: 100%;
-}
-
-/* El bloque que agrupa todos los textos para que se mantengan ordenados */
-#app-hero figcaption {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left; /* Alineación limpia al lado de la foto */
-    flex: 1;
+    width: 100%;
+    gap: 1rem;
 }
 
 /* ==========================================================================
-   5. CONTENIDOS MAXIMIZADOS Y LEGIBLES
+   4. TIPOGRAFÍA Y CONTENIDO ADAPTADOS AL 100%
    ========================================================================== */
 #app-hero h1 {
     color: #ffffff;
-    font-size: clamp(2.2rem, 4dvw, 3.5rem);
+    font-size: clamp(2rem, 5.5dvw, 3.8rem);
     font-weight: 800;
     line-height: 1.1;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    white-space: nowrap; /* Evita que el título se rompa si hay pantalla horizontal */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 #app-hero h2 {
     color: #e2e8f0;
-    font-size: clamp(1.2rem, 2dvw, 1.6rem);
+    font-size: clamp(1.2rem, 2.5dvw, 1.6rem);
     font-weight: 400;
-    margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 0.5rem;
 }
 
-/* La imagen ahora se planta proporcional al lado del texto */
+/* La imagen se adapta dinámicamente al alto y ancho máximo de la tarjeta */
 #app-hero img {
-    width: auto;
-    max-width: 45%; /* Ocupa un espacio equilibrado en la tarjeta */
-    max-height: 55dvh; /* Evita que rompa la pantalla hacia abajo */
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: auto;
+    max-height: 48dvh; /* Controla que la foto no empuje los textos fuera en pantallas bajas */
+    object-fit: contain; /* Ajusta las naranjas al 100% sin recortar ni deformar */
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+#app-hero figcaption {
+    width: 100%;
+    margin-top: 0.5rem;
+    text-align: center;
 }
 
 #app-hero figcaption p {
     color: #f1f5f9;
-    font-size: clamp(1.05rem, 1.8dvw, 1.3rem);
-    line-height: 1.6;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-}
-
-/* ==========================================================================
-   6. RESPONSIVE AUTOMÁTICO PARA MÓVIL (Pantallas verticales)
-   ========================================================================== */
-@media (orientation: portrait) {
-    #app-hero > figure {
-        flex-direction: column; /* En móvil vuelve a ponerse uno encima de otro */
-        gap: 1.5rem;
-    }
-    
-    #app-hero img {
-        max-width: 100%; /* La foto ocupa todo el ancho de la tarjeta en móvil */
-        max-height: 40dvh;
-    }
-    
-    #app-hero figcaption {
-        text-align: center; /* Centramos el texto en móviles */
-    }
-}
-
-/* Ocultar el sello de Netlify con la clase .nl-wrap que ellos mismos añaden antes de mi web */
-#nl-badge-frame {
-    display: none !important;
+    font-size: clamp(1.05rem, 2dvw, 1.4rem);
+    line-height: 1.5;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
 }

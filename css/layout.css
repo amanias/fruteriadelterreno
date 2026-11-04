@@ -62,3 +62,8 @@ main {
   transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
               height 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
+/* Ocultar el sello de Netlify con la clase .nl-wrap que ellos mismos añaden antes de mi web */
+#nl-badge-frame {
+    display: none !important;
+}

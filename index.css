@@ -33,7 +33,7 @@ body {
     body { background-image: url('img/fondo-movil.avif'); }
 }
 @media (orientation: landscape) {
-    body { background-image: url('fondo-pc.avif'); }
+    body { background-image: url('img/fondo-pc.avif'); }
 }
 
 /* ==========================================================================

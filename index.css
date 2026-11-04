@@ -1,108 +1,61 @@
 /* ==========================================================================
-   1. RESET TOTAL
-   ========================================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    width: 100dvw;
-    min-height: 100dvh;
-}
-
-/* ==========================================================================
-   2. EL FONDO DE PANTALLA RESPONSIVO (En el body)
-   ========================================================================== */
-body {
-    background-color: #2d3718; 
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-
-    /* Centrado dinámico absoluto */
-    display: grid;
-    place-items: center;
-    padding: 1.5rem; 
-}
-
-/* Carga de la imagen de fondo según cómo se gire la pantalla */
-@media (orientation: portrait) {
-    body { background-image: url('img/fondo-movil.avif'); }
-}
-@media (orientation: landscape) {
-    body { background-image: url('img/fondo-pc.avif'); }
-}
-
-/* ==========================================================================
-   3. EL CONTENEDOR CRISTALINO (Glassmorphism Moderno)
+   EL CONTENEDOR MÁXIMO (Ocupa prácticamente toda la pantalla)
    ========================================================================== */
 #app-hero {
-    /* Elástico: se adapta al contenido interno con un tope de seguridad */
-    width: fit-content;
-    max-width: min(460px, 90dvw); 
+    /* Forzamos a la tarjeta a expandirse al ancho y alto máximo permitido por el viewport */
+    width: 90dvw;  /* Deja solo un 5% de margen a cada lado */
     height: auto;
+    max-height: 90dvh; /* Evita que se salga por arriba o abajo en pantallas bajas */
     
-    /* Efecto cristal translúcido moderno */
+    /* El efecto cristal translúcido que ya tenías */
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     
-    /* Estructura e iluminación de bordes */
-    padding: 2rem;
-    border-radius: 24px;
+    /* Estructura interna */
+    padding: 2.5rem;
+    border-radius: 28px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
 }
 
-/* Organización interna del contenido */
-#app-hero > figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
 /* ==========================================================================
-   4. IMAGEN Y TEXTOS INTEGRADOS
+   TIPOGRAFÍA E IMAGEN AL 100%
    ========================================================================== */
 #app-hero h1 {
     color: #ffffff;
-    font-size: clamp(1.8rem, 6dvw, 2.4rem); /* Fluido: ni enorme en PC ni diminuto en móvil */
+    /* Subimos el tamaño base: ahora escala agresivamente con el ancho de la pantalla */
+    font-size: clamp(2.5rem, 6dvw, 4.5rem); 
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.1;
+    white-space: nowrap; /* Fuerza a que el título se mantenga en una sola línea si hay pantalla */
 }
 
 #app-hero h2 {
     color: #e2e8f0;
-    font-size: clamp(1.1rem, 3.5dvw, 1.3rem);
+    font-size: clamp(1.3rem, 3dvw, 2rem);
     font-weight: 400;
-    margin-top: 0.2rem;
-    margin-bottom: 1.5rem; /* Separación con la imagen */
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
+/* La imagen ahora aprovecha el espacio gigante de la tarjeta */
 #app-hero img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 14px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* El pie de foto que sirve de descripción */
-#app-hero figcaption {
-    margin-top: 1.2rem;
+    /* Ponemos un alto máximo inteligente para que la foto no empuje el texto fuera en pantallas horizontales cortos */
+    max-height: 45dvh; 
+    object-fit: contain; /* Mantiene la proporción de la foto al 100% sin recortar las naranjas */
+    border-radius: 18px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
 }
 
 #app-hero figcaption p {
     color: #f1f5f9;
-    font-size: clamp(0.95rem, 3dvw, 1.1rem);
+    font-size: clamp(1.1rem, 2.5dvw, 1.5rem);
     line-height: 1.5;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    margin-top: 1.2rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
-
 
 /* Ocultar el sello de Netlify con la clase .nl-wrap que ellos mismos añaden antes de mi web */
 #nl-badge-frame {

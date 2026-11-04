@@ -1,0 +1,110 @@
+/* ==========================================================================
+   1. RESET TOTAL
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100dvw;
+    min-height: 100dvh;
+}
+
+/* ==========================================================================
+   2. EL FONDO DE PANTALLA RESPONSIVO (En el body)
+   ========================================================================== */
+body {
+    background-color: #2d3718; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    /* Centrado dinámico absoluto */
+    display: grid;
+    place-items: center;
+    padding: 1.5rem; 
+}
+
+/* Carga de la imagen de fondo según cómo se gire la pantalla */
+@media (orientation: portrait) {
+    body { background-image: url('img/fondo-movil.avif'); }
+}
+@media (orientation: landscape) {
+    body { background-image: url('img/fondo-pc.avif'); }
+}
+
+/* ==========================================================================
+   3. EL CONTENEDOR CRISTALINO (Glassmorphism Moderno)
+   ========================================================================== */
+#app-hero {
+    /* Elástico: se adapta al contenido interno con un tope de seguridad */
+    width: fit-content;
+    max-width: min(460px, 90dvw); 
+    height: auto;
+    
+    /* Efecto cristal translúcido moderno */
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
+    /* Estructura e iluminación de bordes */
+    padding: 2rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+/* Organización interna del contenido */
+#app-hero > figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* ==========================================================================
+   4. IMAGEN Y TEXTOS INTEGRADOS
+   ========================================================================== */
+#app-hero h1 {
+    color: #ffffff;
+    font-size: clamp(1.8rem, 6dvw, 2.4rem); /* Fluido: ni enorme en PC ni diminuto en móvil */
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+#app-hero h2 {
+    color: #e2e8f0;
+    font-size: clamp(1.1rem, 3.5dvw, 1.3rem);
+    font-weight: 400;
+    margin-top: 0.2rem;
+    margin-bottom: 1.5rem; /* Separación con la imagen */
+}
+
+#app-hero img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* El pie de foto que sirve de descripción */
+#app-hero figcaption {
+    margin-top: 1.2rem;
+}
+
+#app-hero figcaption p {
+    color: #f1f5f9;
+    font-size: clamp(0.95rem, 3dvw, 1.1rem);
+    line-height: 1.5;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Ocultar el sello de Netlify con la clase .nl-wrap que ellos mismos añaden antes de mi web */
+#nl-badge-frame {
+    display: none !important;
+}

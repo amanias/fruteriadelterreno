@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESET COMPLETO
+   1. RESET TOTAL DE CONFIANZA
    ========================================================================== */
 * {
     margin: 0;
@@ -13,105 +13,110 @@ html, body {
 }
 
 /* ==========================================================================
-   2. EL FONDO DE LAS UVAS (Corregido con tu carpeta img/)
+   2. EL FONDO RESPONSIVO (En el body, de esquina a esquina)
    ========================================================================== */
 body {
-    background-color: #2d3718; 
+    background-color: #2d3718; /* Tu verde de seguridad */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 
-    /* Centrado absoluto en la pantalla */
+    /* Centrado elástico absoluto para la tarjeta #principal */
     display: grid;
     place-items: center;
-    padding: 2dvh 2dvw; 
+    padding: 2.5dvh 2.5dvw; 
 }
 
-/* Restauramos tus fondos reales apuntando a la carpeta img/ */
+/* Carga responsiva real desde tu carpeta img/ según la orientación */
 @media (orientation: portrait) {
-    body { background-image: url('img/Afondo-movil.avif'); }
+    body { background-image: url('img/fondo-movil.avif'); }
 }
 @media (orientation: landscape) {
-    body { background-image: url('img/Afondo-pc.avif'); }
+    body { background-image: url('img/fondo-pc.avif'); }
 }
 
 /* ==========================================================================
-   3. CONTENEDOR ELÁSTICO MAXIMIZADO (Efecto Cristal Moderno)
+   3. CLASE COMÚN: EFECTO CRISTAL (Glassmorphism Moderno)
    ========================================================================== */
-#app-hero {
-    /* Ocupa el máximo espacio disponible sin salirse jamás del viewport */
+.efecto-cristal {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   4. ELEMENTOS EXCLUSIVOS (Estructura y Maquetación por ID)
+   ========================================================================== */
+#principal {
+    /* Anchura elástica: se abre al máximo disponible sin desbordar el viewport */
     width: fit-content;
     max-width: 92dvw;
     height: auto;
     max-height: 92dvh;
     
-    /* Cristal translúcido para fundirse con las uvas de fondo */
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    padding: 2.5rem;
+    border-radius: 28px;
     
-    padding: 2rem;
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-    
-    /* Forzamos overflow para que si el contenido es enorme, no rompa la tarjeta */
-    overflow: hidden;
-}
-
-/* Estructura en una sola columna elástica */
-#app-hero > figure {
+    /* Disposición interna secuencial hacia abajo */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    gap: 0.8rem;
+    overflow: hidden;
+}
+
+#principal-imagen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    gap: 1rem;
+    gap: 1.2rem;
+    margin-top: 0.5rem;
 }
 
 /* ==========================================================================
-   4. TIPOGRAFÍA Y CONTENIDO ADAPTADOS AL 100%
+   5. CONTENIDOS MAXIMIZADOS Y LEGIBLES (Tipografía e Imagen)
    ========================================================================== */
-#app-hero h1 {
+#principal-titulo {
     color: #ffffff;
-    font-size: clamp(2rem, 5.5dvw, 3.8rem);
+    font-size: clamp(2.2rem, 6dvw, 4rem); /* Gigante y fluido según pantalla */
     font-weight: 800;
     line-height: 1.1;
     text-align: center;
-    white-space: nowrap; /* Evita que el título se rompa si hay pantalla horizontal */
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    white-space: nowrap; /* Evita que el título se rompa si cabe en horizontal */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-#app-hero h2 {
+#principal-subtitulo {
     color: #e2e8f0;
-    font-size: clamp(1.2rem, 2.5dvw, 1.6rem);
+    font-size: clamp(1.2rem, 3dvw, 1.8rem);
     font-weight: 400;
     text-align: center;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
-    margin-bottom: 0.5rem;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
 }
 
-/* La imagen se adapta dinámicamente al alto y ancho máximo de la tarjeta */
-#app-hero img {
+#principal-imagen img {
     width: 100%;
     height: auto;
-    max-height: 48dvh; /* Controla que la foto no empuje los textos fuera en pantallas bajas */
+    max-height: 48dvh; /* Evita que la foto empuje los textos fuera en pantallas bajas */
     object-fit: contain; /* Ajusta las naranjas al 100% sin recortar ni deformar */
-    border-radius: 16px;
+    border-radius: 18px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
-#app-hero figcaption {
-    width: 100%;
-    margin-top: 0.5rem;
+#principal-leyenda {
+    color: #f1f5f9;
+    font-size: clamp(1.1rem, 2.5dvw, 1.5rem);
+    line-height: 1.4;
     text-align: center;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-#app-hero figcaption p {
-    color: #f1f5f9;
-    font-size: clamp(1.05rem, 2dvw, 1.4rem);
-    line-height: 1.5;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+/* Ocultar el sello de Netlify con la clase .nl-wrap que ellos mismos añaden antes de mi web */
+#nl-badge-frame {
+    display: none !important;
 }

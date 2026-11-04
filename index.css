@@ -2,27 +2,68 @@
     --color-fondo-seguridad: #2d3718;
 }
 
-#app-hero {
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================
+   1. EL FONDO REAL (Ocupa toda la pantalla siempre)
+   ========================================== */
+body {
     background-color: var(--color-fondo-seguridad); 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; /* Mantiene las uvas fijas al hacer scroll */
+    
+    /* El truco del almendruco: centra el contenedor tanto en vertical como en horizontal */
     min-height: 100vh;
-    width: 100%;
+    display: grid;
+    place-items: center; 
+    padding: 20px; /* Margen para que no toque los bordes en móviles */
 }
 
-/* --- VERTICAL: Móvil (1080x1920) --- */
+/* Carga del AVIF en el body según la anchura/orientación */
 @media (width <= 768px) {
-    #app-hero {
-        background-image: url('img/fondo-movil.avif');
-    }
+    body { background-image: url('fondo-movil.avif'); }
+}
+@media (width > 768px) {
+    body { background-image: url('fondo-pc.avif'); }
 }
 
-/* --- HORIZONTAL: PC (1920x1080) --- */
-@media (width > 768px) {
-    #app-hero {
-        background-image: url('img/fondo-pc.avif');
-    }
+/* ==========================================
+   2. EL CONTENEDOR QUE FLOTA (Adaptable al máximo)
+   ========================================== */
+#app-hero {
+    /* Anchura elástica: se adapta al contenido que metas dentro, con un límite para pantallas grandes */
+    width: fit-content;
+    max-width: 90vw; 
+    height: auto;
+    
+    /* Diseño flotante independiente de la foto de fondo */
+    background: #ffffff; /* Puedes ponerle un fondo blanco o el que prefieras */
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================
+   3. CONTENIDOS AUTO-ADAPTABLES (Texto e imágenes de dentro)
+   ========================================== */
+#app-hero h1 {
+    color: #000000;
+    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Texto fluido que no se desmadra */
+    margin-bottom: 1rem;
+}
+
+/* Por si dentro del contenedor metes fotos de productos (manzanas, plátanos, etc.) */
+#app-hero img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
 }
 
 /* Ocultar el sello de Netlify con la clase .nl-wrap que ellos mismos añaden antes de mi web */

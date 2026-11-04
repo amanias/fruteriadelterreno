@@ -33,10 +33,10 @@ body {
 
 /* Carga del AVIF según los rangos modernos de pantalla */
 @media (width <= 768px) {
-    body { background-image: url('fondo-movil.avif'); }
+    body { background-image: url('imgfondo-movil.avif'); }
 }
 @media (width > 768px) {
-    body { background-image: url('fondo-pc.avif'); }
+    body { background-image: url('img/fondo-pc.avif'); }
 }
 
 /* ==========================================

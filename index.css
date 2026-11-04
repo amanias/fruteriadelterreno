@@ -1,0 +1,87 @@
+:root {
+    background-color: #2d3718; 
+    --padding-tarjeta: clamp(1.25rem, 5vmin, 3rem);
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    background-color: #2d3718;
+    overflow-x: hidden;
+    overflow-y: auto; 
+    padding: 2rem 1rem; 
+}
+
+/* El fondo en el CSS */
+body {
+    background: #2d3718 url('img/fondo.avif') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.tarjeta-presentacion {
+    background: color-mix(in srgb, #000000 60%, transparent);
+    padding: var(--padding-tarjeta);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    width: 95%;
+    max-width: 500px; 
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    margin: 0 auto; 
+}
+
+/* ==========================================================================
+   🔒 CLASE DE SEGURIDAD EXCLUSIVA CONTRA EL DESBORDE DE LA DERECHA
+   ========================================================================== */
+.texto {
+    word-break: break-word;   /* Rompe palabras largas si el contenedor es enano */
+    overflow-wrap: break-word;
+    text-wrap: pretty;        /* Evita palabras huérfanas al final del párrafo */
+    hyphens: auto;            /* Añade guion si corta la palabra */
+
+    text-align: center;
+}
+
+/* ==========================================================================
+   🎨 PROPIEDADES PARTICULARES POR ID
+   ========================================================================== */
+
+#titulo {
+    font-size: clamp(2.25rem, 1.25rem + 6vmin, 4.5rem);
+    font-weight: 850;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #f8fafc;
+    text-wrap: balance;
+}
+
+#subtitulo {
+    font-size: clamp(1.4rem, 0.9rem + 3vmin, 2.25rem); /* Escalado proporcional más pequeño */
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: #cbd5e1; /* Un tono gris claro sutil para dar contraste */
+    margin-top: 0.25rem;
+    text-wrap: balance;
+}
+
+#descripcion {
+    font-size: clamp(1.05rem, 0.85rem + 1.5vmin, 1.35rem);
+    line-height: 1.5;
+    margin-top: 1.25rem;
+    color: #e2e8f0;
+}
+
+/* Ocultar el sello de Netlify con la clase .nl-wrap que ellos mismos añaden antes de mi web */
+#nl-badge-frame {
+    display: none !important;
+}

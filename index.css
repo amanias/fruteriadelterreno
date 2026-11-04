@@ -40,11 +40,11 @@ body {
    3. CLASE COMÚN: EFECTO CRISTAL (Glassmorphism Moderno)
    ========================================================================== */
 .efecto-cristal {
-    background: rgba(255, 255, 255, 0.12);
+    background-color: #ffffff;
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* ==========================================================================

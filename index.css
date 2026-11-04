@@ -1,60 +1,98 @@
 /* ==========================================================================
-   EL CONTENEDOR MÁXIMO (Ocupa prácticamente toda la pantalla)
+   3. EL CONTENEDOR ELÁSTICO E INTELIGENTE
    ========================================================================== */
 #app-hero {
-    /* Forzamos a la tarjeta a expandirse al ancho y alto máximo permitido por el viewport */
-    width: 90dvw;  /* Deja solo un 5% de margen a cada lado */
+    width: fit-content;
+    max-width: 90dvw;
     height: auto;
-    max-height: 90dvh; /* Evita que se salga por arriba o abajo en pantallas bajas */
+    max-height: 85dvh;
     
-    /* El efecto cristal translúcido que ya tenías */
-    background: rgba(255, 255, 255, 0.12);
+    /* El cristal translúcido */
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     
-    /* Estructura interna */
     padding: 2.5rem;
     border-radius: 28px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
 }
 
 /* ==========================================================================
-   TIPOGRAFÍA E IMAGEN AL 100%
+   4. DISTRIBUCIÓN ADAPTATIVA (Flexbox Moderno)
+   ========================================================================== */
+#app-hero > figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem; /* Espacio generoso entre la foto y los textos */
+    width: 100%;
+    height: 100%;
+}
+
+/* El bloque que agrupa todos los textos para que se mantengan ordenados */
+#app-hero figcaption {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left; /* Alineación limpia al lado de la foto */
+    flex: 1;
+}
+
+/* ==========================================================================
+   5. CONTENIDOS MAXIMIZADOS Y LEGIBLES
    ========================================================================== */
 #app-hero h1 {
     color: #ffffff;
-    /* Subimos el tamaño base: ahora escala agresivamente con el ancho de la pantalla */
-    font-size: clamp(2.5rem, 6dvw, 4.5rem); 
+    font-size: clamp(2.2rem, 4dvw, 3.5rem);
     font-weight: 800;
     line-height: 1.1;
-    white-space: nowrap; /* Fuerza a que el título se mantenga en una sola línea si hay pantalla */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 #app-hero h2 {
     color: #e2e8f0;
-    font-size: clamp(1.3rem, 3dvw, 2rem);
+    font-size: clamp(1.2rem, 2dvw, 1.6rem);
     font-weight: 400;
     margin-top: 0.5rem;
     margin-bottom: 1.5rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* La imagen ahora aprovecha el espacio gigante de la tarjeta */
+/* La imagen ahora se planta proporcional al lado del texto */
 #app-hero img {
-    width: 100%;
-    /* Ponemos un alto máximo inteligente para que la foto no empuje el texto fuera en pantallas horizontales cortos */
-    max-height: 45dvh; 
-    object-fit: contain; /* Mantiene la proporción de la foto al 100% sin recortar las naranjas */
-    border-radius: 18px;
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    width: auto;
+    max-width: 45%; /* Ocupa un espacio equilibrado en la tarjeta */
+    max-height: 55dvh; /* Evita que rompa la pantalla hacia abajo */
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 #app-hero figcaption p {
     color: #f1f5f9;
-    font-size: clamp(1.1rem, 2.5dvw, 1.5rem);
-    line-height: 1.5;
-    margin-top: 1.2rem;
+    font-size: clamp(1.05rem, 1.8dvw, 1.3rem);
+    line-height: 1.6;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   6. RESPONSIVE AUTOMÁTICO PARA MÓVIL (Pantallas verticales)
+   ========================================================================== */
+@media (orientation: portrait) {
+    #app-hero > figure {
+        flex-direction: column; /* En móvil vuelve a ponerse uno encima de otro */
+        gap: 1.5rem;
+    }
+    
+    #app-hero img {
+        max-width: 100%; /* La foto ocupa todo el ancho de la tarjeta en móvil */
+        max-height: 40dvh;
+    }
+    
+    #app-hero figcaption {
+        text-align: center; /* Centramos el texto en móviles */
+    }
 }
 
 /* Ocultar el sello de Netlify con la clase .nl-wrap que ellos mismos añaden antes de mi web */

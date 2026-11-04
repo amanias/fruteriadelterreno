@@ -3,29 +3,35 @@
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 /* ==========================================
-   1. EL FONDO REAL (Ocupa toda la pantalla siempre)
+   EL FONDO DINÁMICO (Perfecto para Tablets/Móviles que giran)
    ========================================== */
 body {
     background-color: var(--color-fondo-seguridad); 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Mantiene las uvas fijas al hacer scroll */
+    background-attachment: fixed;
     
-    /* El truco del almendruco: centra el contenedor tanto en vertical como en horizontal */
-    min-height: 100vh;
+    /* UNIDADES DINÁMICAS 2027: Se adaptan al girar el dispositivo y absorben las barras del navegador */
+    width: 100dvw;
+    min-height: 100dvh;
+    
+    /* Forzamos a que el área de renderizado tenga como mínimo la dimensión más grande disponible */
+    min-width: 100vmax; 
+    
+    /* Centrado absoluto del contenedor flotante */
     display: grid;
     place-items: center; 
-    padding: 20px; /* Margen para que no toque los bordes en móviles */
+    padding: 2.5dvi; /* Padding dinámico relativo al inline-size (ancho) */
 }
 
-/* Carga del AVIF en el body según la anchura/orientación */
+/* Carga del AVIF según los rangos modernos de pantalla */
 @media (width <= 768px) {
     body { background-image: url('fondo-movil.avif'); }
 }
@@ -34,36 +40,19 @@ body {
 }
 
 /* ==========================================
-   2. EL CONTENEDOR QUE FLOTA (Adaptable al máximo)
+   EL CONTENEDOR FLOTANTE CENTRAL
    ========================================== */
 #app-hero {
-    /* Anchura elástica: se adapta al contenido que metas dentro, con un límite para pantallas grandes */
+    /* fit-content puro: se encoge y estira según el contenido real */
     width: fit-content;
-    max-width: 90vw; 
+    /* Evita que toque los bordes usando ancho de viewport dinámico */
+    max-width: 85dvw; 
     height: auto;
     
-    /* Diseño flotante independiente de la foto de fondo */
-    background: #ffffff; /* Puedes ponerle un fondo blanco o el que prefieras */
+    background: #ffffff;
     padding: 2.5rem;
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-}
-
-/* ==========================================
-   3. CONTENIDOS AUTO-ADAPTABLES (Texto e imágenes de dentro)
-   ========================================== */
-#app-hero h1 {
-    color: #000000;
-    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Texto fluido que no se desmadra */
-    margin-bottom: 1rem;
-}
-
-/* Por si dentro del contenedor metes fotos de productos (manzanas, plátanos, etc.) */
-#app-hero img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Ocultar el sello de Netlify con la clase .nl-wrap que ellos mismos añaden antes de mi web */

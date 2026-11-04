@@ -31,10 +31,10 @@ body {
 
 /* Carga la imagen correcta según la orientación real del dispositivo */
 @media (orientation: portrait) {
-    body { background-image: url('fondo-movil.avif'); }
+    body { background-image: url('img/fondo-movil.avif'); }
 }
 @media (orientation: landscape) {
-    body { background-image: url('fondo-pc.avif'); }
+    body { background-image: url('img/fondo-pc.avif'); }
 }
 
 /* ==========================================================================

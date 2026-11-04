@@ -82,7 +82,7 @@ body {
    5. CONTENIDOS MAXIMIZADOS Y LEGIBLES (Tipografía e Imagen)
    ========================================================================== */
 #principal-titulo {
-    color: #ffffff;
+    color: #1e293b;
     font-size: clamp(2.2rem, 6dvw, 4rem); /* Gigante y fluido según pantalla */
     font-weight: 800;
     line-height: 1.1;
@@ -92,7 +92,7 @@ body {
 }
 
 #principal-subtitulo {
-    color: #e2e8f0;
+    color: #d97706;
     font-size: clamp(1.2rem, 3dvw, 1.8rem);
     font-weight: 400;
     text-align: center;
@@ -109,7 +109,7 @@ body {
 }
 
 #principal-leyenda {
-    color: #f1f5f9;
+    color: #475569;
     font-size: clamp(1.1rem, 2.5dvw, 1.5rem);
     line-height: 1.4;
     text-align: center;

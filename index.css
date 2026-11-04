@@ -92,7 +92,7 @@ body {
 }
 
 #principal-subtitulo {
-    color: #d97706;
+    color: #475569;
     font-size: clamp(1.2rem, 3dvw, 1.8rem);
     font-weight: 400;
     text-align: center;
@@ -109,7 +109,7 @@ body {
 }
 
 #principal-leyenda {
-    color: #475569;
+    color: #d97706;
     font-size: clamp(1.1rem, 2.5dvw, 1.5rem);
     line-height: 1.4;
     text-align: center;

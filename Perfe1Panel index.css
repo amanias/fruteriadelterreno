@@ -1,0 +1,97 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  background-color: #9b7e13;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #9b7e13;
+  background-image: url("img/fondo-movil.jpg");
+  background-image: image-set(
+    url("img/fondo-movil.avif") type("image/avif"),
+    url("img/fondo-movil.jpg") type("image/jpeg")
+  );
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (orientation: landscape) {
+  body::before {
+    background-image: url("img/fondo-pc.jpg");
+    background-image: image-set(
+      url("img/fondo-pc.avif") type("image/avif"),
+      url("img/fondo-pc.jpg") type("image/jpeg")
+    );
+  }
+}
+
+@media
+  (orientation: landscape) and (min-width: 160rem),
+  (orientation: landscape) and (min-width: 120rem) and (min-resolution: 1.5dppx) {
+  body::before {
+    background-image: url("img/fondo-4k.jpg");
+    background-image: image-set(
+      url("img/fondo-4k.avif") type("image/avif"),
+      url("img/fondo-4k.jpg") type("image/jpeg")
+    );
+  }
+}
+
+main {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 0.75rem;
+}
+
+.panel {
+  width: 100%;
+  min-height: calc(100vh - 1.5rem);
+  min-height: calc(100dvh - 1.5rem);
+  padding: 1rem;
+  border: 1px solid rgb(255 255 255 / 45%);
+  border-radius: 1rem;
+  background-color: rgb(75 75 75 / 30%);
+}
+
+.foto-principal {
+  width: min(100%, 60rem);
+  margin: 0 auto;
+}
+
+.foto-principal img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+/* ==========================================================================
+           LIMPIEZA DE INYECCIONES EXTERNAS (Netlify Badge)
+   ========================================================================== */
+#nl-badge-frame,
+.nl-wrap,
+[id*="netlify-badge"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}

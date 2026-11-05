@@ -60,12 +60,95 @@ main {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 0.75rem;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
   padding: 0.75rem;
+  overflow: hidden;
 }
 
-.panel--secundario {
+.panel {
+  min-width: 0;
+  min-height: 0;
+  padding: 0.75rem;
+  padding: clamp(0.75rem, 2vh, 1.25rem);
+  padding: clamp(0.75rem, 2dvh, 1.25rem);
+  border: 1px solid rgb(255 255 255 / 45%);
+  border-radius: 1rem;
+  background-color: rgb(75 75 75 / 30%);
+}
+
+#informacion {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: 0.5rem;
+  gap: clamp(0.4rem, 1.5vh, 0.9rem);
+  gap: clamp(0.4rem, 1.5dvh, 0.9rem);
+  overflow-y: auto;
+}
+
+.texto {
+  margin: 0;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+#titulo {
+  font-size: 1.5rem;
+  font-size: clamp(1rem, 4vh, 2.5rem);
+  font-size: clamp(1rem, 4dvh, 2.5rem);
+  line-height: 1.05;
+}
+
+#subtitulo {
+  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vh, 1.75rem);
+  font-size: clamp(1rem, 3dvh, 1.75rem);
+  line-height: 1.1;
+}
+
+#descripcion {
+  font-size: 1rem;
+  font-size: clamp(1rem, 2.5vh, 1.25rem);
+  font-size: clamp(1rem, 2.5dvh, 1.25rem);
+  line-height: 1.2;
+}
+
+#foto-principal {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 0.4rem;
+  min-height: 0;
+  margin: 0;
+}
+
+#contacto-whatsapp {
+  display: grid;
+  min-height: 0;
+  place-items: center;
+}
+
+#imagen-naranjas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+#imagen-naranjas img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.75rem;
+  object-fit: contain;
+}
+
+#icono-whatsapp {
+  display: none;
+  width: clamp(3rem, 12vmin, 5rem);
+  height: auto;
+}
+
+#historia {
   display: none;
 }
 
@@ -74,31 +157,22 @@ main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .panel--secundario {
+  #historia {
     display: block;
+    overflow-y: auto;
   }
 }
 
-.panel {
-  width: 100%;
-  min-height: calc(100vh - 1.5rem);
-  min-height: calc(100dvh - 1.5rem);
-  padding: 1rem;
-  border: 1px solid rgb(255 255 255 / 45%);
-  border-radius: 1rem;
-  background-color: rgb(75 75 75 / 30%);
-}
+@media
+  (orientation: portrait) and (max-height: 34rem),
+  (orientation: landscape) and (max-width: 64rem) and (max-height: 34rem) {
+  #imagen-naranjas {
+    display: none;
+  }
 
-.foto-principal {
-  width: min(100%, 60rem);
-  margin: 0 auto;
-}
-
-.foto-principal img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 0.75rem;
+  #icono-whatsapp {
+    display: block;
+  }
 }
 
 /* ==========================================================================

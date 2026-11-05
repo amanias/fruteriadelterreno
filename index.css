@@ -87,7 +87,7 @@ body {
    5. CONTENIDOS (Textos claros para que contrasten sobre el fondo humo)
    ========================================================================== */
 #principal-titulo {
-    color: #ffffff; /* Blanco nítido */
+    color: #1e293b; /* Blanco nítido */
     font-size: clamp(2.2rem, 6dvw, 4rem); 
     font-weight: 800;
     line-height: 1.1;
@@ -97,7 +97,7 @@ body {
 }
 
 #principal-subtitulo {
-    color: #cbd5e1; /* Gris claro suave */
+    color: #d97706; /* Gris claro suave */
     font-size: clamp(1.2rem, 3dvw, 1.8rem);
     font-weight: 400;
     text-align: center;
@@ -114,7 +114,7 @@ body {
 }
 
 #principal-leyenda {
-    color: #fb923c; /* Un naranja más brillante y vivo para que resalte sobre el humo oscuro */
+    color: #475569; /* Un naranja más brillante y vivo para que resalte sobre el humo oscuro */
     font-size: clamp(1.1rem, 2.5dvw, 1.5rem);
     line-height: 1.4;
     text-align: center;

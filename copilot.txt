@@ -1,0 +1,3 @@
+No es tonta. Normalmente VS Code conserva la conversación: al volver a abrirlo, busca este chat en el historial de Copilot Chat y selecciónalo para continuar.
+
+Si no aparece, puedes iniciar un chat nuevo y decirle que retome el trabajo de `fruteriadelterreno`; el código guardado seguirá ahí. Para recuperar el contexto con más facilidad, guarda esta conversación o deja anotado que estamos ajustando el diseño responsive de sus dos paneles.

@@ -88,14 +88,17 @@ main {
   align-self: center;
   gap: 0.5rem;
   height: fit-content;
+  max-height: 100%;
+  overflow-y: auto;
 }
 
 .texto {
   margin: 0;
+  max-width: 100%;
   color: #fffdf2;
   text-align: center;
   text-shadow: 0 2px 4px rgb(0 0 0 / 85%);
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 #titulo {

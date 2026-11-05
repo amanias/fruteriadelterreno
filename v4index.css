@@ -1,0 +1,135 @@
+/* ==========================================================================
+   1. RESET TOTAL DE CONFIANZA
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100dvw;
+    min-height: 100dvh;
+}
+
+/* ==========================================================================
+   2. EL FONDO RESPONSIVO (En el body, de esquina a esquina)
+   ========================================================================== */
+body {
+    background-color: #2d3718; /* Tu verde de seguridad */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    /* Centrado elástico absoluto para la tarjeta #principal */
+    display: grid;
+    place-items: center;
+    padding: 2.5dvh 2.5dvw; 
+}
+
+/* Carga responsiva real desde tu carpeta img/ según la orientación */
+@media (orientation: portrait) {
+    body { background-image: url('img/fondo-movil.avif'); }
+}
+@media (orientation: landscape) {
+    body { background-image: url('img/fondo-pc.avif'); }
+}
+
+/* ==========================================================================
+   3. CLASE COMÚN: EFECTO CRISTAL (El color humo/gris oscuro traslúcido)
+   ========================================================================== */
+.efecto-cristal {
+    /* El color humo oscuro que querías para el cuerpo de la tarjeta */
+    background: rgba(30, 41, 59, 0.5); 
+    
+    /* Desenfoque para que las uvas de detrás se intuyan de forma suave */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    
+    /* Borde fino sutil para siluetear el vidrio sobre el fondo */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   4. ELEMENTOS EXCLUSIVOS (Estructura y Maquetación por ID)
+   ========================================================================== */
+#principal {
+    /* Anchura elástica: se abre al máximo disponible sin desbordar la pantalla */
+    width: fit-content;
+    max-width: 92dvw;
+    height: auto;
+    max-height: 92dvh;
+    
+    padding: 2.5rem;
+    border-radius: 28px;
+    
+    /* Disposición interna secuencial hacia abajo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    overflow: hidden;
+}
+
+#principal-imagen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   5. CONTENIDOS (Textos claros para que contrasten sobre el fondo humo)
+   ========================================================================== */
+#principal-titulo {
+    color: #1e293b;
+    font-size: clamp(2.2rem, 6dvw, 4rem); 
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: center;
+    white-space: nowrap; 
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#principal-subtitulo {    
+    color: #475569;
+    font-size: clamp(1.2rem, 3dvw, 1.8rem);
+    font-weight: 400;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#principal-imagen img {
+    width: 100%;
+    height: auto;
+    max-height: 48dvh; 
+    object-fit: contain; 
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+#principal-leyenda {
+    color: #d97706;
+    font-size: clamp(1.1rem, 2.5dvw, 1.5rem);
+    line-height: 1.4;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   6. LIMPIEZA DE INYECCIONES EXTERNAS (Netlify Badge)
+   ========================================================================== */
+#nl-badge-frame,
+.nl-wrap,
+[id*="netlify-badge"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}

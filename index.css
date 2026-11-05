@@ -37,14 +37,21 @@ body {
 }
 
 /* ==========================================================================
-   3. CLASE COMÚN: EFECTO CRISTAL (Glassmorphism Moderno)
+   3. CLASE COMÚN: EFECTO CRISTAL (Vidrio Gris Claro Esmerilado)
    ========================================================================== */
 .efecto-cristal {
-    background: rgba(255, 255, 255, 0.12);
+    /* Base gris clara/plateada traslúcida para contrastar con tus textos oscuros */
+    background: rgba(241, 245, 249, 0.75); 
+    
+    /* El esmerilado que difumina las uvas de detrás */
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    
+    /* Borde sutil que siluetea la tarjeta */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    
+    /* Sombra profunda para despegar la tarjeta del fondo */
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
 }
 
 /* ==========================================================================
@@ -88,7 +95,7 @@ body {
     line-height: 1.1;
     text-align: center;
     white-space: nowrap; /* Evita que el título se rompa si cabe en horizontal */
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5); /* Sombra clara de apoyo */
 }
 
 #principal-subtitulo {
@@ -96,7 +103,6 @@ body {
     font-size: clamp(1.2rem, 3dvw, 1.8rem);
     font-weight: 400;
     text-align: center;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
 }
 
 #principal-imagen img {
@@ -105,7 +111,7 @@ body {
     max-height: 48dvh; /* Evita que la foto empuje los textos fuera en pantallas bajas */
     object-fit: contain; /* Ajusta las naranjas al 100% sin recortar ni deformar */
     border-radius: 18px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 #principal-leyenda {
@@ -113,10 +119,17 @@ body {
     font-size: clamp(1.1rem, 2.5dvw, 1.5rem);
     line-height: 1.4;
     text-align: center;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    font-weight: 600;
 }
 
-/* Ocultar el sello de Netlify con la clase .nl-wrap que ellos mismos añaden antes de mi web */
-#nl-badge-frame {
+/* ==========================================================================
+   6. LIMPIEZA DE INYECCIONES EXTERNAS (Netlify Badge)
+   ========================================================================== */
+#nl-badge-frame,
+.nl-wrap,
+[id*="netlify-badge"] {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }

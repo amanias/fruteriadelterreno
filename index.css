@@ -68,7 +68,7 @@ main {
   min-height: calc(100dvh - 1.5rem);
   border: 1px solid rgb(255 255 255 / 45%);
   border-radius: 1rem;
-  background-color: rgb(35 31 12 / 14%);
+  background-color: rgb(75 75 75 / 30%);
 }
 
 /* ==========================================================================

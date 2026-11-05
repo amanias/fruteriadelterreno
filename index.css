@@ -41,7 +41,7 @@ body {
    ========================================================================== */
 .efecto-cristal {
     /* El color humo oscuro que querías para el cuerpo de la tarjeta */
-    background: rgba(30, 41, 59, 0.7); 
+    background: rgba(30, 41, 59, 0.5); 
     
     /* Desenfoque para que las uvas de detrás se intuyan de forma suave */
     backdrop-filter: blur(16px);
@@ -87,13 +87,13 @@ body {
    5. CONTENIDOS (Textos claros para que contrasten sobre el fondo humo)
    ========================================================================== */
 #principal-titulo {
-    color: #1e293b; /* Blanco nítido */
+    color: #1e293b;
     font-size: clamp(2.2rem, 6dvw, 4rem); 
     font-weight: 800;
     line-height: 1.1;
     text-align: center;
     white-space: nowrap; 
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #principal-subtitulo {    

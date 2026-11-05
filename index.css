@@ -37,28 +37,26 @@ body {
 }
 
 /* ==========================================================================
-   3. CLASE COMÚN: EFECTO CRISTAL (Vidrio Gris Claro Esmerilado)
+   3. CLASE COMÚN: EFECTO CRISTAL (El color humo/gris oscuro traslúcido)
    ========================================================================== */
 .efecto-cristal {
-    /* Base gris clara/plateada traslúcida para contrastar con tus textos oscuros */
-    background: rgba(241, 245, 249, 0.75); 
+    /* El color humo oscuro que querías para el cuerpo de la tarjeta */
+    background: rgba(30, 41, 59, 0.7); 
     
-    /* El esmerilado que difumina las uvas de detrás */
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    /* Desenfoque para que las uvas de detrás se intuyan de forma suave */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     
-    /* Borde sutil que siluetea la tarjeta */
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    
-    /* Sombra profunda para despegar la tarjeta del fondo */
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    /* Borde fino sutil para siluetear el vidrio sobre el fondo */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.5);
 }
 
 /* ==========================================================================
    4. ELEMENTOS EXCLUSIVOS (Estructura y Maquetación por ID)
    ========================================================================== */
 #principal {
-    /* Anchura elástica: se abre al máximo disponible sin desbordar el viewport */
+    /* Anchura elástica: se abre al máximo disponible sin desbordar la pantalla */
     width: fit-content;
     max-width: 92dvw;
     height: auto;
@@ -86,40 +84,42 @@ body {
 }
 
 /* ==========================================================================
-   5. CONTENIDOS MAXIMIZADOS Y LEGIBLES (Tipografía e Imagen)
+   5. CONTENIDOS (Textos claros para que contrasten sobre el fondo humo)
    ========================================================================== */
 #principal-titulo {
-    color: #1e293b;
-    font-size: clamp(2.2rem, 6dvw, 4rem); /* Gigante y fluido según pantalla */
+    color: #ffffff; /* Blanco nítido */
+    font-size: clamp(2.2rem, 6dvw, 4rem); 
     font-weight: 800;
     line-height: 1.1;
     text-align: center;
-    white-space: nowrap; /* Evita que el título se rompa si cabe en horizontal */
-    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5); /* Sombra clara de apoyo */
+    white-space: nowrap; 
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 #principal-subtitulo {
-    color: #475569;
+    color: #cbd5e1; /* Gris claro suave */
     font-size: clamp(1.2rem, 3dvw, 1.8rem);
     font-weight: 400;
     text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 #principal-imagen img {
     width: 100%;
     height: auto;
-    max-height: 48dvh; /* Evita que la foto empuje los textos fuera en pantallas bajas */
-    object-fit: contain; /* Ajusta las naranjas al 100% sin recortar ni deformar */
+    max-height: 48dvh; 
+    object-fit: contain; 
     border-radius: 18px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 #principal-leyenda {
-    color: #d97706;
+    color: #fb923c; /* Un naranja más brillante y vivo para que resalte sobre el humo oscuro */
     font-size: clamp(1.1rem, 2.5dvw, 1.5rem);
     line-height: 1.4;
     text-align: center;
     font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* ==========================================================================

@@ -76,7 +76,7 @@ main {
   padding: clamp(0.75rem, 2dvh, 1.25rem);
   border: 1px solid rgb(255 255 255 / 45%);
   border-radius: 1rem;
-  background-color: rgb(75 75 75 / 30%);
+  background-color: rgb(75 75 75 / 21%);
   /* El truco del desenfoque moderno */
   backdrop-filter: blur(0.69rem); 
 }
@@ -103,34 +103,18 @@ main {
   overflow-wrap: anywhere;
 }
 
-/* #titulo {
-  font-size: clamp(1rem, 8cqi, 13rem);
-  line-height: 1.05;
-}
-
-#subtitulo {
-  font-size: clamp(1rem, 6cqi, 11.75rem);
-  line-height: 1.1;
-}
-
-#descripcion {
-  font-size: clamp(1rem, 4.5cqi, 11.25rem);
-  line-height: 1.2;
-} */
-
 #titulo {
-  /* Mínimo 1.8rem (¡ya no se ve enano!), escala con el alto, máximo 3rem */
-  font-size: clamp(1.8rem, 4dvh + 1rem, 3rem);
+  font-size: clamp(1rem, 8cqi, 3rem);
   line-height: 1.05;
 }
 
 #subtitulo {
-  font-size: clamp(1.3rem, 2.5dvh + 0.8rem, 1.75rem);
+  font-size: clamp(1rem, 6cqi, 1.75rem);
   line-height: 1.1;
 }
 
 #descripcion {
-  font-size: clamp(1rem, 1.5dvh + 0.5rem, 1.25rem);
+  font-size: clamp(1rem, 4.5cqi, 1.25rem);
   line-height: 1.2;
 }
 

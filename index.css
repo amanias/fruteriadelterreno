@@ -78,7 +78,7 @@ main {
   border-radius: 1rem;
   background-color: rgb(75 75 75 / 30%);
   /* El truco del desenfoque moderno */
-  /* backdrop-filter: blur(0.69rem);  */
+  backdrop-filter: blur(0.69rem); 
 }
 
 #informacion {

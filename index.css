@@ -68,7 +68,7 @@ main {
   overflow: hidden;
 }
 
-/* .panel {
+.panel {
   min-width: 0;
   min-height: 0;
   padding: 0.75rem;
@@ -79,23 +79,9 @@ main {
   background-color: rgb(75 75 75 / 30%);
  
   backdrop-filter: blur(0.69rem); 
-} */
-
-.panel {
-  min-width: 0;
-  min-height: 0;
-  padding: 0.75rem;
-  padding: clamp(0.75rem, 2vh, 1.25rem);
-  padding: clamp(0.75rem, 2dvh, 1.25rem);
-  border: 1px solid rgb(255 255 255 / 30%); /* Borde más sutil */
-  border-radius: 1rem;
-  
-  /* Reducimos el gris al 10% para que pase la luz de la uva */
-  background-color: rgb(255 255 255 / 10%); 
-  
-  /* Desenfoque suave para no tapar la fruta trasera */
-  backdrop-filter: blur(0.25rem); 
 }
+
+
 
 
 #informacion {

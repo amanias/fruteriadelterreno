@@ -68,19 +68,6 @@ main {
   overflow: hidden;
 }
 
-/* .panel {
-  min-width: 0;
-  min-height: 0;
-  padding: 0.75rem;
-  padding: clamp(0.75rem, 2vh, 1.25rem);
-  padding: clamp(0.75rem, 2dvh, 1.25rem);
-  border: 1px solid rgb(255 255 255 / 45%);
-  border-radius: 1rem;
-  background-color: rgb(75 75 75 / 30%);
- 
-  backdrop-filter: blur(0.69rem); 
-} */
-
 .panel {
   min-width: 0;
   min-height: 0;
@@ -89,12 +76,7 @@ main {
   padding: clamp(0.75rem, 2dvh, 1.25rem);
   border: 1px solid rgb(255 255 255 / 45%);
   border-radius: 1rem;
-  
-  /* Subimos la opacidad al 55% y usamos un gris bien oscuro */
-  /* Esto creará una base oscura que tapará el brillo de la uva por detrás */
   background-color: rgb(40 40 40/ 30%); 
-  
-  /* Mantén el desenfoque suave para que la uva se intuya pero no moleste */
   backdrop-filter: blur(0.25rem); 
 }
 
@@ -116,60 +98,27 @@ main {
   max-width: 100%;
   text-align: center;
   overflow-wrap: anywhere;
-  
-  /* Truco profesional: Un contorno negro nítido de 1px alrededor de cada letra */
-  text-shadow: 
-    -1px -1px 0 #000,  
-     1px -1px 0 #000,
-    -1px  1px 0 #000,
-     1px  1px 0 #000,
-     0px  2px 4px rgba(0, 0, 0, 0.8); /* Y un extra de sombra hacia abajo */
+  text-shadow: 0 2px 4px rgb(0 0 0 / 85%);
+  /* text-shadow: 0 4px 10px rgba(0, 0, 0, 0.9); */
 }
 
-.texto {
-  margin: 0;
-  max-width: 100%;
-  text-align: center;
-  overflow-wrap: anywhere;
-  /* text-shadow: 0 2px 4px rgb(0 0 0 / 85%); */
-  /* Eliminamos el borde negro antiguo */
-  /* Ponemos una sombra difuminada moderna que da profundidad sin ensuciar */
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
-}
-/* #titulo {
-  font-size: clamp(1rem, 8cqi, 3rem);
-  line-height: 1.05;
-}
-
-#subtitulo {
-  font-size: clamp(1rem, 6cqi, 1.75rem);
-  line-height: 1.1;
-}
-
-#descripcion {
-  font-size: clamp(1rem, 4.5cqi, 1.25rem);
-  line-height: 1.2;
-} */
-
-/* Aplicamos los colores personalizados a cada ID */
 #titulo {
   font-size: clamp(2rem, 12cqi, 3rem);
   line-height: 1.05;
-  color: #6eff2c; /* Un verde lima mucho más eléctrico que va a destacar sobre el fondo oscuro */
+  color: #6eff2c;
 }
 
 #subtitulo {
   font-size: clamp(1.4rem, 8cqi, 1.75rem);
   line-height: 1.1;
-  color: #e5ff82; /* Un amarillo verdoso muy claro y brillante */
+  color: #e5ff82;
 }
 
 #descripcion {
   font-size: clamp(1.1rem, 5cqi, 1.25rem);
   line-height: 1.2;
-  color: #fff9e6; /* Un naranja melocotón/pastel muy claro. Al ser clarito, contrasta al 100% sobre el fondo oscuro */
+  color: #fff9e6;
 }
-
 
 #logotipo {
   display: flex;

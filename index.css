@@ -129,7 +129,7 @@ main {
   overflow-wrap: anywhere;
 }
 
-#titulo {
+/* #titulo {
   font-size: clamp(1rem, 8cqi, 3rem);
   line-height: 1.05;
 }
@@ -142,6 +142,25 @@ main {
 #descripcion {
   font-size: clamp(1rem, 4.5cqi, 1.25rem);
   line-height: 1.2;
+} */
+
+/* Aplicamos los colores personalizados a cada ID */
+#titulo {
+  font-size: clamp(2rem, 12cqi, 3rem);
+  line-height: 1.05;
+  color: #3b7a1c; /* Verde hoja intenso y natural */
+}
+
+#subtitulo {
+  font-size: clamp(1.4rem, 8cqi, 1.75rem);
+  line-height: 1.1;
+  color: #a3c944; /* Verde oliva claro que contrasta con el título */
+}
+
+#descripcion {
+  font-size: clamp(1.1rem, 5cqi, 1.25rem);
+  line-height: 1.2;
+  color: #ff9100; /* Naranja cítrico brillante a juego con la foto interna */
 }
 
 #logotipo {

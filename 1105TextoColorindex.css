@@ -1,0 +1,195 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  background-color: #9b7e13;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #9b7e13;
+  background-image: url("img/fondo-movil.jpg");
+  background-image: image-set(
+    url("img/fondo-movil.avif") type("image/avif"),
+    url("img/fondo-movil.jpg") type("image/jpeg")
+  );
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (orientation: landscape) {
+  body::before {
+    background-image: url("img/fondo-pc.jpg");
+    background-image: image-set(
+      url("img/fondo-pc.avif") type("image/avif"),
+      url("img/fondo-pc.jpg") type("image/jpeg")
+    );
+  }
+}
+
+@media
+  (orientation: landscape) and (min-width: 160rem),
+  (orientation: landscape) and (min-width: 120rem) and (min-resolution: 1.5dppx) {
+  body::before {
+    background-image: url("img/fondo-4k.jpg");
+    background-image: image-set(
+      url("img/fondo-4k.avif") type("image/avif"),
+      url("img/fondo-4k.jpg") type("image/jpeg")
+    );
+  }
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: max-content;
+  align-content: center;
+  gap: 0.75rem;
+  height: 100vh;
+  height: 100dvh;
+  padding: 0.75rem;
+  overflow: hidden;
+}
+
+.panel {
+  min-width: 0;
+  min-height: 0;
+  padding: 0.75rem;
+  padding: clamp(0.75rem, 2vh, 1.25rem);
+  padding: clamp(0.75rem, 2dvh, 1.25rem);
+  border: 1px solid rgb(255 255 255 / 45%);
+  border-radius: 1rem;
+  background-color: rgb(40 40 40/ 30%); 
+  backdrop-filter: blur(0.25rem); 
+}
+
+#informacion {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: 0.5rem;
+  height: fit-content;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.texto {
+  margin: 0;
+  max-width: 100%;
+  text-align: center;
+  overflow-wrap: anywhere;
+  text-shadow: 0 2px 4px rgb(0 0 0 / 85%);
+  /* text-shadow: 0 4px 10px rgba(0, 0, 0, 0.9); */
+}
+
+#titulo {
+  font-size: clamp(2rem, 12cqi, 3rem);
+  line-height: 1.05;
+  color: #6eff2c;
+}
+
+#subtitulo {
+  font-size: clamp(1.4rem, 8cqi, 1.75rem);
+  line-height: 1.1;
+  color: #e5ff82;
+}
+
+#descripcion {
+  font-size: clamp(1.1rem, 5cqi, 1.25rem);
+  line-height: 1.2;
+  color: #fff9e6;
+}
+
+#logotipo {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: min(100%, 36rem);
+  min-height: 0;
+  margin: 0;
+}
+
+#contacto-whatsapp {
+  display: grid;
+  width: 100%;
+  min-height: 0;
+  place-items: center;
+}
+
+#logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+}
+
+#logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 42dvh;
+  border-radius: 0.75rem;
+}
+
+#historia {
+  display: none;
+}
+
+@media (orientation: landscape) {
+  main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: minmax(0, 1fr);
+    align-content: stretch;
+  }
+
+  #informacion {
+    align-self: center;
+  }
+
+  #historia {
+    display: block;
+    overflow-y: auto;
+  }
+}
+
+@media
+  (orientation: portrait) and (max-height: 34rem),
+  (orientation: landscape) and (max-width: 64rem) and (max-height: 34rem) {
+  #logo {
+    width: clamp(3rem, 12vmin, 5rem);
+  }
+}
+
+/* ==========================================================================
+           LIMPIEZA DE INYECCIONES EXTERNAS (Netlify Badge)
+   ========================================================================== */
+#nl-badge-frame,
+.nl-wrap,
+[id*="netlify-badge"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}

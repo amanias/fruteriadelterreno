@@ -68,7 +68,7 @@ main {
   overflow: hidden;
 }
 
-.panel {
+/* .panel {
   min-width: 0;
   min-height: 0;
   padding: 0.75rem;
@@ -79,10 +79,24 @@ main {
   background-color: rgb(75 75 75 / 30%);
  
   backdrop-filter: blur(0.69rem); 
+} */
+
+.panel {
+  min-width: 0;
+  min-height: 0;
+  padding: 0.75rem;
+  padding: clamp(0.75rem, 2vh, 1.25rem);
+  padding: clamp(0.75rem, 2dvh, 1.25rem);
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 1rem;
+  
+  /* Subimos la opacidad al 55% y usamos un gris bien oscuro */
+  /* Esto creará una base oscura que tapará el brillo de la uva por detrás */
+  background-color: rgb(40 40 40 / 55%); 
+  
+  /* Mantén el desenfoque suave para que la uva se intuya pero no moleste */
+  backdrop-filter: blur(0.25rem); 
 }
-
-
-
 
 #informacion {
   container-type: inline-size;
@@ -110,9 +124,15 @@ main {
   margin: 0;
   max-width: 100%;
   text-align: center;
-  /* Sombra negra contundente para salvar el contraste con los colores */
-  text-shadow: 0 2px 5px rgb(0 0 0 / 95%); 
   overflow-wrap: anywhere;
+  
+  /* Truco profesional: Un contorno negro nítido de 1px alrededor de cada letra */
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     0px  2px 4px rgba(0, 0, 0, 0.8); /* Y un extra de sombra hacia abajo */
 }
 
 /* #titulo {
@@ -134,19 +154,19 @@ main {
 #titulo {
   font-size: clamp(2rem, 12cqi, 3rem);
   line-height: 1.05;
-  color: #55d617; /* Un verde lima/hoja súper luminoso que salta a la vista */
+  color: #3eb607; /* Bajamos el brillo a un verde hoja muy vivo pero natural */
 }
 
 #subtitulo {
   font-size: clamp(1.4rem, 8cqi, 1.75rem);
   line-height: 1.1;
-  color: #c7ee53; /* Un amarillo-verdoso más suave pero con cuerpo, ya no es transparente */
+  color: #d2f65a; /* Un tono lima claro que ahora sí contrastará con el contorno */
 }
 
 #descripcion {
   font-size: clamp(1.1rem, 5cqi, 1.25rem);
   line-height: 1.2;
-  color: #ffaa33; /* Un naranja mandarina brillante y con mucha más luz */
+  color: #ff7700; /* Un naranja más intenso y puro (color mandarina/butano) */
 }
 
 #logotipo {

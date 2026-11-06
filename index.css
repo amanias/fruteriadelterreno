@@ -118,7 +118,7 @@ main {
   line-height: 1.2;
 }
 
-#logo {
+#logotipo {
   display: flex;
   flex: 0 1 auto;
   flex-direction: column;
@@ -136,14 +136,14 @@ main {
   place-items: center;
 }
 
-#logotipo {
+#logo {
   display: block;
   width: 100%;
   height: auto;
   min-height: 0;
 }
 
-#logotipo img {
+#logo img {
   display: block;
   width: 100%;
   height: auto;
@@ -175,7 +175,7 @@ main {
 @media
   (orientation: portrait) and (max-height: 34rem),
   (orientation: landscape) and (max-width: 64rem) and (max-height: 34rem) {
-  #logotipo {
+  #logo {
     width: clamp(3rem, 12vmin, 5rem);
   }
 }

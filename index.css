@@ -148,19 +148,19 @@ main {
 #titulo {
   font-size: clamp(2rem, 12cqi, 3rem);
   line-height: 1.05;
-  color: #3b7a1c; /* Verde hoja intenso y natural */
+  color: #55d617; /* Un verde lima/hoja súper luminoso que salta a la vista */
 }
 
 #subtitulo {
   font-size: clamp(1.4rem, 8cqi, 1.75rem);
   line-height: 1.1;
-  color: #a3c944; /* Verde oliva claro que contrasta con el título */
+  color: #c7ee53; /* Un amarillo-verdoso más suave pero con cuerpo, ya no es transparente */
 }
 
 #descripcion {
   font-size: clamp(1.1rem, 5cqi, 1.25rem);
   line-height: 1.2;
-  color: #ff9100; /* Naranja cítrico brillante a juego con la foto interna */
+  color: #ffaa33; /* Un naranja mandarina brillante y con mucha más luz */
 }
 
 #logotipo {

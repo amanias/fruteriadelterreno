@@ -92,7 +92,7 @@ main {
   
   /* Subimos la opacidad al 55% y usamos un gris bien oscuro */
   /* Esto creará una base oscura que tapará el brillo de la uva por detrás */
-  background-color: rgb(75 75 75/ 30%); 
+  background-color: rgb(40 40 40/ 30%); 
   
   /* Mantén el desenfoque suave para que la uva se intuya pero no moleste */
   backdrop-filter: blur(0.25rem); 

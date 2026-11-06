@@ -169,6 +169,25 @@ main {
   color: #ff7700; /* Un naranja más intenso y puro (color mandarina/butano) */
 }
 
+#titulo {
+  font-size: clamp(2rem, 12cqi, 3rem);
+  line-height: 1.05;
+  color: #6eff2c; /* Un verde lima mucho más eléctrico que va a destacar sobre el fondo oscuro */
+}
+
+#subtitulo {
+  font-size: clamp(1.4rem, 8cqi, 1.75rem);
+  line-height: 1.1;
+  color: #e5ff82; /* Un amarillo verdoso muy claro y brillante */
+}
+
+#descripcion {
+  font-size: clamp(1.1rem, 5cqi, 1.25rem);
+  line-height: 1.2;
+  color: #ffcc66; /* Un naranja melocotón/pastel muy claro. Al ser clarito, contrasta al 100% sobre el fondo oscuro */
+}
+
+
 #logotipo {
   display: flex;
   flex: 0 1 auto;

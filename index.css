@@ -134,7 +134,7 @@ main {
   text-shadow: 0 2px 4px rgb(0 0 0 / 85%);
   /* Eliminamos el borde negro antiguo */
   /* Ponemos una sombra difuminada moderna que da profundidad sin ensuciar */
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+  /* text-shadow: 0 4px 10px rgba(0, 0, 0, 0.9); */
 }
 /* #titulo {
   font-size: clamp(1rem, 8cqi, 3rem);

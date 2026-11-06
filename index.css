@@ -111,15 +111,6 @@ main {
   overflow-y: auto;
 }
 
-/* .texto {
-  margin: 0;
-  max-width: 100%;
-  color: #fffdf2;
-  text-align: center;
-  text-shadow: 0 2px 4px rgb(0 0 0 / 85%);
-  overflow-wrap: anywhere;
-} */
-
 .texto {
   margin: 0;
   max-width: 100%;
@@ -140,12 +131,11 @@ main {
   max-width: 100%;
   text-align: center;
   overflow-wrap: anywhere;
-  
+  text-shadow: 0 2px 4px rgb(0 0 0 / 85%);
   /* Eliminamos el borde negro antiguo */
   /* Ponemos una sombra difuminada moderna que da profundidad sin ensuciar */
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
 }
-
 /* #titulo {
   font-size: clamp(1rem, 8cqi, 3rem);
   line-height: 1.05;
@@ -177,7 +167,7 @@ main {
 #descripcion {
   font-size: clamp(1.1rem, 5cqi, 1.25rem);
   line-height: 1.2;
-  color: #fff9e6;  /* Un naranja melocotón/pastel muy claro. Al ser clarito, contrasta al 100% sobre el fondo oscuro */
+  color: #fff9e6; /* Un naranja melocotón/pastel muy claro. Al ser clarito, contrasta al 100% sobre el fondo oscuro */
 }
 
 

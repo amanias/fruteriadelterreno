@@ -77,6 +77,8 @@ main {
   border: 1px solid rgb(255 255 255 / 45%);
   border-radius: 1rem;
   background-color: rgb(75 75 75 / 30%);
+  /* El truco del desenfoque moderno */
+  /* backdrop-filter: blur(0.69rem);  */
 }
 
 #informacion {
@@ -102,17 +104,17 @@ main {
 }
 
 #titulo {
-  font-size: clamp(1rem, 8cqi, 3rem);
+  font-size: clamp(1rem, 8cqi, 13rem);
   line-height: 1.05;
 }
 
 #subtitulo {
-  font-size: clamp(1rem, 6cqi, 1.75rem);
+  font-size: clamp(1rem, 6cqi, 11.75rem);
   line-height: 1.1;
 }
 
 #descripcion {
-  font-size: clamp(1rem, 4.5cqi, 1.25rem);
+  font-size: clamp(1rem, 4.5cqi, 11.25rem);
   line-height: 1.2;
 }
 

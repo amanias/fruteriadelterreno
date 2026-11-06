@@ -1,0 +1,8 @@
+<picture>
+  <!-- SI es una pantalla horizontal (landscape) 
+       Y ADEMÁS es un dispositivo donde NO EXISTE ningún ratón real en todo el sistema (any-hover: none) -->
+  <source media="(orientation: landscape) and (any-hover: none)" srcset="img/foto-dispositivo-girado.jpg">
+  
+  <!-- Para todo lo demás (PC, Portátil táctil, TV, o móvil en vertical) -->
+  <img src="img/foto-principal.jpg" alt="Descripción de la imagen" style="width: 100%; height: auto;">
+</picture>

@@ -135,6 +135,17 @@ main {
      0px  2px 4px rgba(0, 0, 0, 0.8); /* Y un extra de sombra hacia abajo */
 }
 
+.texto {
+  margin: 0;
+  max-width: 100%;
+  text-align: center;
+  overflow-wrap: anywhere;
+  
+  /* Eliminamos el borde negro antiguo */
+  /* Ponemos una sombra difuminada moderna que da profundidad sin ensuciar */
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+}
+
 /* #titulo {
   font-size: clamp(1rem, 8cqi, 3rem);
   line-height: 1.05;
@@ -154,24 +165,6 @@ main {
 #titulo {
   font-size: clamp(2rem, 12cqi, 3rem);
   line-height: 1.05;
-  color: #3eb607; /* Bajamos el brillo a un verde hoja muy vivo pero natural */
-}
-
-#subtitulo {
-  font-size: clamp(1.4rem, 8cqi, 1.75rem);
-  line-height: 1.1;
-  color: #d2f65a; /* Un tono lima claro que ahora sí contrastará con el contorno */
-}
-
-#descripcion {
-  font-size: clamp(1.1rem, 5cqi, 1.25rem);
-  line-height: 1.2;
-  color: #ff7700; /* Un naranja más intenso y puro (color mandarina/butano) */
-}
-
-#titulo {
-  font-size: clamp(2rem, 12cqi, 3rem);
-  line-height: 1.05;
   color: #6eff2c; /* Un verde lima mucho más eléctrico que va a destacar sobre el fondo oscuro */
 }
 
@@ -184,7 +177,7 @@ main {
 #descripcion {
   font-size: clamp(1.1rem, 5cqi, 1.25rem);
   line-height: 1.2;
-  color: #ffcc66; /* Un naranja melocotón/pastel muy claro. Al ser clarito, contrasta al 100% sobre el fondo oscuro */
+  color: #fff9e6;  /* Un naranja melocotón/pastel muy claro. Al ser clarito, contrasta al 100% sobre el fondo oscuro */
 }
 
 

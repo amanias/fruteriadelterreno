@@ -111,12 +111,21 @@ main {
   overflow-y: auto;
 }
 
-.texto {
+/* .texto {
   margin: 0;
   max-width: 100%;
   color: #fffdf2;
   text-align: center;
   text-shadow: 0 2px 4px rgb(0 0 0 / 85%);
+  overflow-wrap: anywhere;
+} */
+
+.texto {
+  margin: 0;
+  max-width: 100%;
+  text-align: center;
+  /* Sombra negra contundente para salvar el contraste con los colores */
+  text-shadow: 0 2px 5px rgb(0 0 0 / 95%); 
   overflow-wrap: anywhere;
 }
 

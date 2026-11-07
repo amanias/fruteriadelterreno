@@ -95,21 +95,18 @@ main {
 }
 
 #titulo {
-  font-size: clamp(1rem, 8cqi, 3rem);
   font-size: clamp(2rem, 12cqi, 3rem);
   line-height: 1.05;
   color: #6eff2c;
 }
 
 #subtitulo {
-  font-size: clamp(1rem, 6cqi, 1.75rem);
   font-size: clamp(1.4rem, 8cqi, 1.75rem);
   line-height: 1.1;
   color: #e5ff82;
 }
 
 #descripcion {
-  font-size: clamp(1rem, 4.5cqi, 1.25rem);
   font-size: clamp(1.1rem, 5cqi, 1.25rem);
   line-height: 1.2;
   color: #fff9e6;

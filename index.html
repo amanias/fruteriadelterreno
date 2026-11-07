@@ -17,7 +17,7 @@
       <figure class="figura">
         <a id="whatsapp-pedido"
           target="_blank" rel="noopener noreferrer"
-          href="*"
+          href="https://wa.me/34644445369?text=Hola%20Javi%F0%9F%91%8B%20Gema%F0%9F%91%8B%0A%0A%F0%9F%8D%8A%F0%9F%8D%8A%F0%9F%8D%8A%20Quiero%20unas%20naranjitas%20en%20casa%20%F0%9F%8F%A1%0A%0AGracias%F0%9F%99%8F"
           class="enlace" aria-label="Realizar pedido con Frutería del Terreno por WhatsApp">
           <picture class="imagen">
             <source
@@ -87,26 +87,6 @@
     </aside>
 
   </main>
-
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const mensajeText = "Hol👋a🍊🏡aaa";
-        const telefono = "34644445359";
-        const botonWhatsapp = document.getElementById("whatsapp-pedido");
-        
-        if (botonWhatsapp) {
-            // Usamos la API web nativa oficial que no pasa por la pantalla puente rota de wa.me
-            const urlBase = "https://whatsapp.com" + telefono + "&text=";
-            const textoCodificado = encodeURIComponent(mensajeText).replace(/%[0-9a-f]{2}/g, m => m.toUpperCase());
-            
-            botonWhatsapp.href = urlBase + textoCodificado;
-        }
-    });
-</script>
-
-
-
-
 </body>
 
 </html>

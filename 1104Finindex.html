@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#9b7e13">
+    <title>Frutería del Terreno</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <main>
+      <section id="informacion" class="panel" aria-labelledby="titulo">
+        <h1 id="titulo" class="texto">Frutería</h1>
+        <h2 id="subtitulo" class="texto">del terreno en casa</h2>
+        <figure id="logo" class="foto">
+          <a
+            id="contacto-whatsapp"
+            href="https://wa.me/34644445369"
+            aria-label="Contactar con Frutería del Terreno por WhatsApp">
+            <picture id="logotipo">
+              <source
+                media="(orientation: portrait) and (max-height: 34rem), (orientation: landscape) and (max-width: 64rem) and (max-height: 34rem)"
+                type="image/svg+xml"
+                srcset="img/whatsapp.svg">
+              <source
+                type="image/avif"
+                srcset="img/naranjas-480.avif 480w, img/naranjas-960.avif 960w"
+                sizes="(orientation: landscape) calc(50vw - 3.25rem), (max-width: 64rem) calc(100vw - 3.5rem), 60rem">
+              <img
+                src="img/Naranjas.jpeg"
+                srcset="img/naranjas-480.jpg 480w, img/Naranjas.jpeg 960w"
+                sizes="(orientation: landscape) calc(50vw - 3.25rem), (max-width: 64rem) calc(100vw - 3.5rem), 60rem"
+                alt="Naranjas maduras en un árbol de la finca"
+                fetchpriority="high">
+            </picture>
+          </a>
+          <figcaption>
+            <p id="descripcion" class="texto">¡Reparto de Naranjas a toda España!</p>
+          </figcaption>
+        </figure>
+      </section>
+      <aside id="historia" class="panel" aria-label="Historia de la frutería"></aside>
+    </main>
+  </body>
+</html>

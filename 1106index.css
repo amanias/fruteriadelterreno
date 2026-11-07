@@ -107,7 +107,8 @@ main {
   color: #e5ff82;
 }
 
-#descripcion, .oferta-texto {
+#descripcion,
+.oferta-texto {
   font-size: clamp(1.1rem, 5cqi, 1.25rem);
   line-height: 1.2;
   color: #fff9e6;

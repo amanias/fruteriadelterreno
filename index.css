@@ -25,10 +25,8 @@ body::before {
   pointer-events: none;
   background-color: #9b7e13;
   background-image: url("img/fondo-movil.jpg");
-  background-image: image-set(
-    url("img/fondo-movil.avif") type("image/avif"),
-    url("img/fondo-movil.jpg") type("image/jpeg")
-  );
+  background-image: image-set(url("img/fondo-movil.avif") type("image/avif"),
+      url("img/fondo-movil.jpg") type("image/jpeg"));
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -37,22 +35,17 @@ body::before {
 @media (orientation: landscape) {
   body::before {
     background-image: url("img/fondo-pc.jpg");
-    background-image: image-set(
-      url("img/fondo-pc.avif") type("image/avif"),
-      url("img/fondo-pc.jpg") type("image/jpeg")
-    );
+    background-image: image-set(url("img/fondo-pc.avif") type("image/avif"),
+        url("img/fondo-pc.jpg") type("image/jpeg"));
   }
 }
 
-@media
-  (orientation: landscape) and (min-width: 160rem),
-  (orientation: landscape) and (min-width: 120rem) and (min-resolution: 1.5dppx) {
+@media (orientation: landscape) and (min-width: 160rem),
+(orientation: landscape) and (min-width: 120rem) and (min-resolution: 1.5dppx) {
   body::before {
     background-image: url("img/fondo-4k.jpg");
-    background-image: image-set(
-      url("img/fondo-4k.avif") type("image/avif"),
-      url("img/fondo-4k.jpg") type("image/jpeg")
-    );
+    background-image: image-set(url("img/fondo-4k.avif") type("image/avif"),
+        url("img/fondo-4k.jpg") type("image/jpeg"));
   }
 }
 
@@ -170,9 +163,8 @@ main {
   }
 }
 
-@media
-  (orientation: portrait) and (max-height: 34rem),
-  (orientation: landscape) and (max-width: 64rem) and (max-height: 34rem) {
+@media (orientation: portrait) and (max-height: 34rem),
+(orientation: landscape) and (max-width: 64rem) and (max-height: 34rem) {
   #logotipo {
     width: clamp(3rem, 12vmin, 5rem);
   }
@@ -184,8 +176,8 @@ main {
 #nl-badge-frame,
 .nl-wrap,
 [id*="netlify-badge"] {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }

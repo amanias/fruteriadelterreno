@@ -107,12 +107,12 @@ main {
 }
 
 .descripcion {
-  font-size: clamp(1.1rem, 7cqi, 1.50rem);
+  font-size: clamp(1.1rem, 5cqi, 1.25rem);
   line-height: 1.2;
   color: #fff9e6;
 }
 
-.figura {
+.imagen {
   display: flex;
   flex: 0 1 auto;
   flex-direction: column;
@@ -130,25 +130,18 @@ main {
   place-items: center;
 }
 
-.imagen {
+#logotipo {
   display: block;
   width: 100%;
   height: auto;
   min-height: 0;
 }
 
-.imagen #img {
+#logotipo img {
   display: block;
   width: 100%;
   height: auto;
   max-height: 42dvh;
-  border-radius: 0.75rem;
-}
-
-#oferta {
-  display: block;
-  width: 100%;
-  height: auto;
   border-radius: 0.75rem;
 }
 

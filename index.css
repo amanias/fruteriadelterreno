@@ -137,7 +137,7 @@ main {
   min-height: 0;
 }
 
-.imagen img {
+#logotipo {
   display: block;
   width: 100%;
   height: auto;

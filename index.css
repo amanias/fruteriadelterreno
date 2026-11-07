@@ -137,11 +137,18 @@ main {
   min-height: 0;
 }
 
-#logotipo, #oferta {
+#logotipo {
   display: block;
   width: 100%;
   height: auto;
   max-height: 42dvh;
+  border-radius: 0.75rem;
+}
+
+#oferta {
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: 0.75rem;
 }
 

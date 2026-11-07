@@ -161,8 +161,72 @@ main {
   }
 
   #historia {
-    display: block;
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    overflow-x: hidden;
     overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scrollbar-gutter: stable;
+  }
+
+  .rrss {
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .rrss-enlace {
+    display: grid;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    place-items: center;
+    border-radius: 50%;
+  }
+
+  .rrss-enlace:focus-visible {
+    outline: 3px solid #fff9e6;
+    outline-offset: 3px;
+  }
+
+  .rrss-icono {
+    display: block;
+    width: 2rem;
+    width: clamp(1.75rem, 4cqi, 2.5rem);
+    height: auto;
+  }
+
+  #historia > figure {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: min(100%, 36rem);
+    margin: 0;
+  }
+
+  .foto-oferta {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 60dvh;
+    object-fit: contain;
+    border-radius: 0.75rem;
+  }
+
+  #historia .descripcion {
+    width: 100%;
+    font-size: 1.1rem;
+    font-size: clamp(1.1rem, 4cqi, 1.5rem);
+    text-align: center;
   }
 }
 

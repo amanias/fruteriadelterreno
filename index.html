@@ -14,10 +14,10 @@
     <section id="informacion" class="panel" aria-labelledby="titulo">
       <h1 id="titulo" class="texto">Frutería</h1>
       <h2 id="subtitulo" class="texto">Del Terreno en Casa</h2>
-      <figure class="figura">
+      <figure class="imagen">
         <a id="contacto-whatsapp" href="https://wa.me/34644445369"
           aria-label="Contactar con Frutería del Terreno por WhatsApp">
-          <picture class="imagen">
+          <picture id="logo">
             <source
               media="(orientation: portrait) and (max-height: 34rem), (orientation: landscape) and (max-width: 64rem) and (max-height: 34rem)"
               type="image/svg+xml" srcset="img/whatsapp.svg">
@@ -28,8 +28,8 @@
               alt="Naranjas maduras en un árbol de la finca" fetchpriority="high">
           </picture>
         </a>
-        <figcaption class="descripcion">
-          <p class="texto">¡Reparto de Naranjas a toda España!</p>
+        <figcaption>
+          <p id="descripcion" class="texto">¡Reparto de Naranjas a toda España!</p>
         </figcaption>
       </figure>
     </section>
@@ -64,14 +64,17 @@
           </svg>
         </a>
       </nav>
-      <figure class="figura">
-        <figcaption class="descripcion">
-          <p class="texto">Oferta del día: ¡Llévate tu caja de temporada con envío incluido!</p>
-        </figcaption>
-        <picture class="imagen">
+
+
+      <!-- 2. BLOQUE DE LA OFERTA (Imagen del día + texto aclarativo) -->
+      <figure class="imagen">
+        <picture id="oferta">
           <!-- <source type="image/avif" srcset="img/oferta.avif"> -->
-          <img id="oferta" src="img/oferta.jpg" alt="Oferta especial del día en frutas del terreno" class="foto-oferta">
+          <img src="img/oferta.jpg" alt="Oferta especial del día en frutas del terreno" class="foto-oferta">
         </picture>
+        <figcaption>
+          <p class="oferta-texto">Oferta del día: ¡Llévate tu caja de temporada con envío incluido!</p>
+        </figcaption>
       </figure>
     </aside>
 

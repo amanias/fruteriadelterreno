@@ -164,12 +164,14 @@ main {
     container-type: inline-size;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    align-items: stretch;
+    gap: 1.25rem;
     overflow-x: hidden;
     overflow-y: auto;
     overscroll-behavior-y: contain;
     scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255 249 230 / 70%) transparent;
   }
 
   .rrss {
@@ -197,8 +199,8 @@ main {
 
   .rrss-icono {
     display: block;
-    width: 2rem;
-    width: clamp(1.75rem, 4cqi, 2.5rem);
+    width: 3rem;
+    width: clamp(3rem, 7cqi, 4rem);
     height: auto;
   }
 
@@ -207,18 +209,20 @@ main {
     flex: 0 0 auto;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
-    width: min(100%, 36rem);
+    gap: 1rem;
+    width: 100%;
     margin: 0;
+  }
+
+  #historia > figure picture {
+    display: block;
+    width: 100%;
   }
 
   .foto-oferta {
     display: block;
-    width: auto;
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    max-height: 60dvh;
-    object-fit: contain;
     border-radius: 0.75rem;
   }
 
@@ -227,6 +231,7 @@ main {
     font-size: 1.1rem;
     font-size: clamp(1.1rem, 4cqi, 1.5rem);
     text-align: center;
+    overflow-wrap: anywhere;
   }
 }
 

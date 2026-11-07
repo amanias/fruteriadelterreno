@@ -138,9 +138,7 @@ main {
 }
 
 #logotipo {
-  display: block;
-  width: 100%;
-  height: auto;
+ 
   max-height: 42dvh;
   border-radius: 0.75rem;
 }

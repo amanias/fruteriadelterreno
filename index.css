@@ -138,8 +138,10 @@ main {
 }
 
 #logotipo {
- 
-  max-height: 42dvh;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 48dvh;
   border-radius: 0.75rem;
 }
 

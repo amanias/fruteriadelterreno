@@ -88,23 +88,22 @@
 
   </main>
 
-      <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Tu texto con sus espacios e iconos normales
-            const mensajeText = "Hola Javi y Gema! 👋 Quiero unas naranjitas en casa 🍊🏡, Gracias! 🙏";
-            const telefono = "34644445359";
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const mensajeText = "Hol👋a🍊🏡aaa";
+        const telefono = "34644445359";
+        const botonWhatsapp = document.getElementById("whatsapp-pedido");
+        
+        if (botonWhatsapp) {
+            // Usamos la API web nativa oficial que no pasa por la pantalla puente rota de wa.me
+            const urlBase = "https://whatsapp.com" + telefono + "&text=";
+            const textoCodificado = encodeURIComponent(mensajeText).replace(/%[0-9a-f]{2}/g, m => m.toUpperCase());
             
-            const botonWhatsapp = document.getElementById("whatsapp-pedido");
-            
-            if (botonWhatsapp) {
-                // Usamos la URL directa de la aplicación Web que no rompe los emojis en PC
-                const urlBase = "https://whatsapp.com" + telefono + "&text=";
-                const textoCodificado = encodeURIComponent(mensajeText).replace(/%[0-9a-f]{2}/g, m => m.toUpperCase());
-                
-                botonWhatsapp.href = urlBase + textoCodificado;
-            }
-        });
-    </script>
+            botonWhatsapp.href = urlBase + textoCodificado;
+        }
+    });
+</script>
+
 
 
 

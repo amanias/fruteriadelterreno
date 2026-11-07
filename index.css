@@ -25,8 +25,10 @@ body::before {
   pointer-events: none;
   background-color: #9b7e13;
   background-image: url("img/fondo-movil.jpg");
-  background-image: image-set(url("img/fondo-movil.avif") type("image/avif"),
-      url("img/fondo-movil.jpg") type("image/jpeg"));
+  background-image: image-set(
+    url("img/fondo-movil.avif") type("image/avif"),
+    url("img/fondo-movil.jpg") type("image/jpeg")
+  );
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -35,17 +37,22 @@ body::before {
 @media (orientation: landscape) {
   body::before {
     background-image: url("img/fondo-pc.jpg");
-    background-image: image-set(url("img/fondo-pc.avif") type("image/avif"),
-        url("img/fondo-pc.jpg") type("image/jpeg"));
+    background-image: image-set(
+      url("img/fondo-pc.avif") type("image/avif"),
+      url("img/fondo-pc.jpg") type("image/jpeg")
+    );
   }
 }
 
-@media (orientation: landscape) and (min-width: 160rem),
-(orientation: landscape) and (min-width: 120rem) and (min-resolution: 1.5dppx) {
+@media
+  (orientation: landscape) and (min-width: 160rem),
+  (orientation: landscape) and (min-width: 120rem) and (min-resolution: 1.5dppx) {
   body::before {
     background-image: url("img/fondo-4k.jpg");
-    background-image: image-set(url("img/fondo-4k.avif") type("image/avif"),
-        url("img/fondo-4k.jpg") type("image/jpeg"));
+    background-image: image-set(
+      url("img/fondo-4k.avif") type("image/avif"),
+      url("img/fondo-4k.jpg") type("image/jpeg")
+    );
   }
 }
 
@@ -69,8 +76,8 @@ main {
   padding: clamp(0.75rem, 2dvh, 1.25rem);
   border: 1px solid rgb(255 255 255 / 45%);
   border-radius: 1rem;
-  background-color: rgb(40 40 40/ 30%);
-  backdrop-filter: blur(0.25rem);
+  background-color: rgb(40 40 40/ 30%); 
+  backdrop-filter: blur(0.25rem); 
 }
 
 #informacion {
@@ -107,13 +114,13 @@ main {
   color: #e5ff82;
 }
 
-#descripcion, .oferta-texto {
+#descripcion {
   font-size: clamp(1.1rem, 5cqi, 1.25rem);
   line-height: 1.2;
   color: #fff9e6;
 }
 
-#imagen {
+#logotipo {
   display: flex;
   flex: 0 1 auto;
   flex-direction: column;
@@ -124,26 +131,21 @@ main {
   margin: 0;
 }
 
-#contacto-whatsapp,
-#whatsapp,
-#instagram,
-#facebook {
+#contacto-whatsapp {
   display: grid;
   width: 100%;
   min-height: 0;
   place-items: center;
 }
 
-#logo,
-#oferta {
+#logo {
   display: block;
   width: 100%;
   height: auto;
   min-height: 0;
 }
 
-#logo img,
-#oferta img {
+#logo img {
   display: block;
   width: 100%;
   height: auto;
@@ -154,51 +156,6 @@ main {
 #historia {
   display: none;
 }
-
-.rrss {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.arrss-enlace {
-  display: grid;
-  place-items: center;
-  /* Mantenemos un tamaño de caja cómodo para pinchar con el dedo */
-  width: clamp(2.5rem, 8vmin, 3.5rem);
-  height: clamp(2.5rem, 8vmin, 3.5rem);
-
-  /* ELIMINAMOS por completo el fondo blanco, el borde y el padding circular */
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-
-  transition: transform 0.2s ease;
-}
-
-.rrss-enlace:hover {
-  transform: scale(1.15);
-  /* Efecto elástico sutil al pasar el ratón */
-}
-
-/* Forzamos a que los SVG ocupen todo el espacio de su caja elástica */
-.rrss-icono {
-  width: 80%;
-  height: auto;
-  display: block;
-  /* Sombra sutil detrás del propio logo para que resalte sobre la uva si es necesario */
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
-}
-
-/* ==========================================================================
-           MEDIA QUERIES
-   ========================================================================== */
-
-
 
 @media (orientation: landscape) {
   main {
@@ -217,8 +174,9 @@ main {
   }
 }
 
-@media (orientation: portrait) and (max-height: 34rem),
-(orientation: landscape) and (max-width: 64rem) and (max-height: 34rem) {
+@media
+  (orientation: portrait) and (max-height: 34rem),
+  (orientation: landscape) and (max-width: 64rem) and (max-height: 34rem) {
   #logo {
     width: clamp(3rem, 12vmin, 5rem);
   }
@@ -230,8 +188,8 @@ main {
 #nl-badge-frame,
 .nl-wrap,
 [id*="netlify-badge"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }

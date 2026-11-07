@@ -112,7 +112,7 @@ main {
   color: #fff9e6;
 }
 
-.imagen {
+.figura {
   display: flex;
   flex: 0 1 auto;
   flex-direction: column;

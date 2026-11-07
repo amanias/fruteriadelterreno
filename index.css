@@ -107,7 +107,7 @@ main {
 }
 
 .descripcion {
-  font-size: clamp(1.1rem, 6cqi, 1.50rem);
+  font-size: clamp(1.1rem, 7cqi, 1.69rem);
   line-height: 1.2;
   color: #fff9e6;
 }

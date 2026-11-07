@@ -25,10 +25,8 @@ body::before {
   pointer-events: none;
   background-color: #9b7e13;
   background-image: url("img/fondo-movil.jpg");
-  background-image: image-set(
-    url("img/fondo-movil.avif") type("image/avif"),
-    url("img/fondo-movil.jpg") type("image/jpeg")
-  );
+  background-image: image-set(url("img/fondo-movil.avif") type("image/avif"),
+      url("img/fondo-movil.jpg") type("image/jpeg"));
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -37,22 +35,17 @@ body::before {
 @media (orientation: landscape) {
   body::before {
     background-image: url("img/fondo-pc.jpg");
-    background-image: image-set(
-      url("img/fondo-pc.avif") type("image/avif"),
-      url("img/fondo-pc.jpg") type("image/jpeg")
-    );
+    background-image: image-set(url("img/fondo-pc.avif") type("image/avif"),
+        url("img/fondo-pc.jpg") type("image/jpeg"));
   }
 }
 
-@media
-  (orientation: landscape) and (min-width: 160rem),
-  (orientation: landscape) and (min-width: 120rem) and (min-resolution: 1.5dppx) {
+@media (orientation: landscape) and (min-width: 160rem),
+(orientation: landscape) and (min-width: 120rem) and (min-resolution: 1.5dppx) {
   body::before {
     background-image: url("img/fondo-4k.jpg");
-    background-image: image-set(
-      url("img/fondo-4k.avif") type("image/avif"),
-      url("img/fondo-4k.jpg") type("image/jpeg")
-    );
+    background-image: image-set(url("img/fondo-4k.avif") type("image/avif"),
+        url("img/fondo-4k.jpg") type("image/jpeg"));
   }
 }
 
@@ -77,6 +70,7 @@ main {
   border: 1px solid rgb(255 255 255 / 45%);
   border-radius: 1rem;
   background-color: rgb(75 75 75 / 30%);
+  backdrop-filter: blur(0.25rem);
 }
 
 #informacion {
@@ -95,28 +89,30 @@ main {
 .texto {
   margin: 0;
   max-width: 100%;
-  color: #fffdf2;
   text-align: center;
   text-shadow: 0 2px 4px rgb(0 0 0 / 85%);
   overflow-wrap: anywhere;
 }
 
 #titulo {
-  font-size: clamp(1rem, 8cqi, 3rem);
+  font-size: clamp(2rem, 12cqi, 3rem);
   line-height: 1.05;
+  color: #6eff2c;
 }
 
 #subtitulo {
-  font-size: clamp(1rem, 6cqi, 1.75rem);
+  font-size: clamp(1.4rem, 8cqi, 1.75rem);
   line-height: 1.1;
+  color: #e5ff82;
 }
 
-#descripcion {
-  font-size: clamp(1rem, 4.5cqi, 1.25rem);
+.descripcion {
+  font-size: clamp(1.1rem, 5cqi, 1.25rem);
   line-height: 1.2;
+  color: #fff9e6;
 }
 
-#logo {
+.imagen {
   display: flex;
   flex: 0 1 auto;
   flex-direction: column;
@@ -170,9 +166,8 @@ main {
   }
 }
 
-@media
-  (orientation: portrait) and (max-height: 34rem),
-  (orientation: landscape) and (max-width: 64rem) and (max-height: 34rem) {
+@media (orientation: portrait) and (max-height: 34rem),
+(orientation: landscape) and (max-width: 64rem) and (max-height: 34rem) {
   #logotipo {
     width: clamp(3rem, 12vmin, 5rem);
   }
@@ -184,8 +179,8 @@ main {
 #nl-badge-frame,
 .nl-wrap,
 [id*="netlify-badge"] {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }

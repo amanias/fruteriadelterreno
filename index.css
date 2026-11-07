@@ -116,7 +116,7 @@ main {
   line-height: 1.2;
 }
 
-#logo {
+.imagen {
   display: flex;
   flex: 0 1 auto;
   flex-direction: column;

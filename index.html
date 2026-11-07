@@ -17,7 +17,7 @@
       <figure class="figura">
         <a id="whatsapp-pedido"
           target="_blank" rel="noopener noreferrer"
-          href="https://wa.me/34644445369?text=Holoo%F0%9F%91%8Boo🇦🇷"
+          href="*"
           class="enlace" aria-label="Realizar pedido con Frutería del Terreno por WhatsApp">
           <picture class="imagen">
             <source
@@ -87,6 +87,29 @@
     </aside>
 
   </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Tu mensaje con sus espacios y emojis escritos de forma normal y amigable
+        const mensajeText = "Hola Javi y Gema! 👋 Quiero unas naranjitas en casa 🍊🏡, Gracias! 🙏";
+        
+        // El número de teléfono de tu frutería
+        const telefono = "34644445359";
+        
+        // Obtenemos tu botón de la línea 20 por su ID
+        const botonWhatsapp = document.getElementById("whatsapp-pedido");
+        
+        if (botonWhatsapp) {
+            // El navegador genera la URL perfecta con mayúsculas y codificación nativa al vuelo
+            const urlCodificada = "https://wa.me" + telefono + "?text=" + encodeURIComponent(mensajeText).replace(/%[0-9a-f]{2}/g, m => m.toUpperCase());
+            
+            // Le inyectamos el enlace perfecto al botón
+            botonWhatsapp.href = urlCodificada;
+        }
+    });
+</script>
+
+
 </body>
 
 </html>

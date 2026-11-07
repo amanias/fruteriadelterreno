@@ -89,7 +89,6 @@ main {
 .texto {
   margin: 0;
   max-width: 100%;
-  color: #fffdf2;
   text-align: center;
   text-shadow: 0 2px 4px rgb(0 0 0 / 85%);
   overflow-wrap: anywhere;
@@ -98,16 +97,19 @@ main {
 #titulo {
   font-size: clamp(1rem, 8cqi, 3rem);
   line-height: 1.05;
+  color: #6eff2c;
 }
 
 #subtitulo {
   font-size: clamp(1rem, 6cqi, 1.75rem);
   line-height: 1.1;
+  color: #e5ff82;
 }
 
 #descripcion {
   font-size: clamp(1rem, 4.5cqi, 1.25rem);
   line-height: 1.2;
+  color: #fff9e6;
 }
 
 .imagen {

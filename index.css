@@ -222,7 +222,7 @@ main {
 .foto-oferta {
   width: 100%;
   height: auto;
-  max-height: 40dvh;
+  /* max-height: 40dvh; */
   object-fit: cover;
   display: block;
   border-radius: 0.75rem;

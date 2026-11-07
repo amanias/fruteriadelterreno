@@ -76,8 +76,7 @@ main {
   padding: clamp(0.75rem, 2dvh, 1.25rem);
   border: 1px solid rgb(255 255 255 / 45%);
   border-radius: 1rem;
-  background-color: rgb(40 40 40/ 30%); 
-  backdrop-filter: blur(0.25rem); 
+  background-color: rgb(75 75 75 / 30%);
 }
 
 #informacion {
@@ -96,31 +95,28 @@ main {
 .texto {
   margin: 0;
   max-width: 100%;
+  color: #fffdf2;
   text-align: center;
-  overflow-wrap: anywhere;
   text-shadow: 0 2px 4px rgb(0 0 0 / 85%);
-  /* text-shadow: 0 4px 10px rgba(0, 0, 0, 0.9); */
+  overflow-wrap: anywhere;
 }
 
 #titulo {
-  font-size: clamp(2rem, 12cqi, 3rem);
+  font-size: clamp(1rem, 8cqi, 3rem);
   line-height: 1.05;
-  color: #6eff2c;
 }
 
 #subtitulo {
-  font-size: clamp(1.4rem, 8cqi, 1.75rem);
+  font-size: clamp(1rem, 6cqi, 1.75rem);
   line-height: 1.1;
-  color: #e5ff82;
 }
 
 #descripcion {
-  font-size: clamp(1.1rem, 5cqi, 1.25rem);
+  font-size: clamp(1rem, 4.5cqi, 1.25rem);
   line-height: 1.2;
-  color: #fff9e6;
 }
 
-#logotipo {
+#logo {
   display: flex;
   flex: 0 1 auto;
   flex-direction: column;
@@ -138,14 +134,14 @@ main {
   place-items: center;
 }
 
-#logo {
+#logotipo {
   display: block;
   width: 100%;
   height: auto;
   min-height: 0;
 }
 
-#logo img {
+#logotipo img {
   display: block;
   width: 100%;
   height: auto;
@@ -177,7 +173,7 @@ main {
 @media
   (orientation: portrait) and (max-height: 34rem),
   (orientation: landscape) and (max-width: 64rem) and (max-height: 34rem) {
-  #logo {
+  #logotipo {
     width: clamp(3rem, 12vmin, 5rem);
   }
 }

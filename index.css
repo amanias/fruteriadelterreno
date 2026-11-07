@@ -172,34 +172,46 @@ main {
 }
 
 /* 1. LOS TRES LOGOS DE CONTACTO (FLEXBOX) */
+/* ========================================================
+   ICONOS LIMPIOS Y TRANSPARENTES (ADIÓS PEGOTES)
+   ======================================================== */
+
 .redes-contacto {
   display: flex;
-  justify-content: space-around; /* Reparte los tres logos con el mismo espacio entre ellos */
+  justify-content: space-around; 
   align-items: center;
-  padding: 0.5rem 0;
   width: 100%;
+  margin: 0;
+  padding: 0.5rem 0;
 }
 
 .enlace-red {
   display: grid;
   place-items: center;
-  width: clamp(2.5rem, 8vmin, 3.5rem);
+  /* Mantenemos un tamaño de caja cómodo para pinchar con el dedo */
+  width: clamp(2.5rem, 8vmin, 3.5rem); 
   height: clamp(2.5rem, 8vmin, 3.5rem);
-  background-color: #ffffff; /* Fondo blanco limpio para los logos */
-  border-radius: 50%;
-  padding: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  
+  /* ELIMINAMOS por completo el fondo blanco, el borde y el padding circular */
+  background-color: transparent; 
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  
   transition: transform 0.2s ease;
 }
 
 .enlace-red:hover {
-  transform: scale(1.1);
+  transform: scale(1.15); /* Efecto elástico sutil al pasar el ratón */
 }
 
+/* Forzamos a que los SVG ocupen todo el espacio de su caja elástica */
 .icono-red {
-  width: 100%;
+  width: 80%; /* Un pelín más pequeños para que no se vean gigantes al quitar el círculo */
   height: auto;
   display: block;
+  /* Sombra sutil detrás del propio logo para que resalte sobre la uva si es necesario */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)); 
 }
 
 /* 2. EL BLOQUE DE LA OFERTA DIARIA */

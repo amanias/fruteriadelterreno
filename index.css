@@ -98,6 +98,7 @@ main {
   font-size: clamp(2rem, 12cqi, 3rem);
   line-height: 1.05;
   color: #6eff2c;
+  color: #25D366;
 }
 
 #subtitulo {

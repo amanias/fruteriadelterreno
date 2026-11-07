@@ -168,32 +168,8 @@ main {
 
 @media (orientation: portrait) and (max-height: 34rem),
 (orientation: landscape) and (max-width: 64rem) and (max-height: 34rem) {
-  #logotipo {
-    width: clamp(3rem, 12vmin, 5rem);
-    max-height: none;
-  }
-}
-
-@media (orientation: portrait) and (min-height: 34.01rem) {
-  main {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: max-content;
-    align-content: center;
-  }
-
-  #informacion {
-    width: 100%;
-    height: fit-content;
-    align-self: center;
-  }
-
   .imagen {
-    width: 100%;
-  }
-
-  #logotipo {
-    width: 100%;
-    max-height: 42dvh;
+    width: clamp(3rem, 12vmin, 5rem);
   }
 }
 

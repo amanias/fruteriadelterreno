@@ -164,7 +164,7 @@ main {
   padding: 0;
 }
 
-.enlace-red {
+.arrss-enlace {
   display: grid;
   place-items: center;
   /* Mantenemos un tamaño de caja cómodo para pinchar con el dedo */
@@ -180,15 +180,14 @@ main {
   transition: transform 0.2s ease;
 }
 
-.enlace-red:hover {
+.rrss-enlace:hover {
   transform: scale(1.15);
   /* Efecto elástico sutil al pasar el ratón */
 }
 
 /* Forzamos a que los SVG ocupen todo el espacio de su caja elástica */
-.icono-red {
+.rrss-icono {
   width: 80%;
-  /* Un pelín más pequeños para que no se vean gigantes al quitar el círculo */
   height: auto;
   display: block;
   /* Sombra sutil detrás del propio logo para que resalte sobre la uva si es necesario */

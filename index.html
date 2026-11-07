@@ -88,26 +88,24 @@
 
   </main>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Tu mensaje con sus espacios y emojis escritos de forma normal y amigable
-        const mensajeText = "Hola Javi y Gema! 👋 Quiero unas naranjitas en casa 🍊🏡, Gracias! 🙏";
-        
-        // El número de teléfono de tu frutería
-        const telefono = "34644445359";
-        
-        // Obtenemos tu botón de la línea 20 por su ID
-        const botonWhatsapp = document.getElementById("whatsapp-pedido");
-        
-        if (botonWhatsapp) {
-            // El navegador genera la URL perfecta con mayúsculas y codificación nativa al vuelo
-            const urlCodificada = "https://wa.me" + telefono + "?text=" + encodeURIComponent(mensajeText).replace(/%[0-9a-f]{2}/g, m => m.toUpperCase());
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Tu texto con sus espacios e iconos normales
+            const mensajeText = "Hola Javi y Gema! 👋 Quiero unas naranjitas en casa 🍊🏡, Gracias! 🙏";
+            const telefono = "34644445359";
             
-            // Le inyectamos el enlace perfecto al botón
-            botonWhatsapp.href = urlCodificada;
-        }
-    });
-</script>
+            const botonWhatsapp = document.getElementById("whatsapp-pedido");
+            
+            if (botonWhatsapp) {
+                // Usamos la URL directa de la aplicación Web que no rompe los emojis en PC
+                const urlBase = "https://whatsapp.com" + telefono + "&text=";
+                const textoCodificado = encodeURIComponent(mensajeText).replace(/%[0-9a-f]{2}/g, m => m.toUpperCase());
+                
+                botonWhatsapp.href = urlBase + textoCodificado;
+            }
+        });
+    </script>
+
 
 
 </body>

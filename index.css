@@ -112,7 +112,7 @@ main {
   color: #fff9e6;
 }
 
-.figura {
+.imagen {
   display: flex;
   flex: 0 1 auto;
   flex-direction: column;
@@ -130,14 +130,14 @@ main {
   place-items: center;
 }
 
-#imagen {
+#logotipo {
   display: block;
   width: 100%;
   height: auto;
   min-height: 0;
 }
 
-#imagen img {
+#logotipo img {
   display: block;
   width: 100%;
   height: auto;

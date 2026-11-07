@@ -130,14 +130,14 @@ main {
   place-items: center;
 }
 
-#logotipo {
+.imagen {
   display: block;
   width: 100%;
   height: auto;
   min-height: 0;
 }
 
-#logotipo img {
+.imagen img {
   display: block;
   width: 100%;
   height: auto;
@@ -168,7 +168,7 @@ main {
 
 @media (orientation: portrait) and (max-height: 34rem),
 (orientation: landscape) and (max-width: 64rem) and (max-height: 34rem) {
-  #logotipo {
+  .imagen {
     width: clamp(3rem, 12vmin, 5rem);
   }
 }

@@ -137,12 +137,8 @@ main {
   min-height: 0;
 }
 
-#logotipo {
-  display: block;
-  width: 100%;
-  height: auto;
+#logotipo {  
   max-height: 42dvh;
-  border-radius: 0.75rem;
 }
 
 #historia {
@@ -219,11 +215,12 @@ main {
     width: 100%;
   }
 
-  .foto-oferta {
+  .foto {
     display: block;
     width: 100%;
     height: auto;
     border-radius: 0.75rem;
+    color: #fff9e6;
   }
 
   #historia .descripcion {

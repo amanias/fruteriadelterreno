@@ -13,11 +13,8 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   margin: 0;
-  /* background-color: #9b7e13;  /* Color original de la página */
   background-color: #d4c153;
   /* background-color: #165126; /* Borde del logo */
-  /* background-color: #5b8c2c; /* Color del tema*/
-
   isolation: isolate;
 }
 
@@ -77,7 +74,7 @@ main {
   backdrop-filter: blur(0.25rem);
 }
 
-#informacion {
+#portada {
   container-type: inline-size;
   display: flex;
   flex-direction: column;
@@ -118,13 +115,16 @@ main {
 
 .figura {
   display: flex;
-  flex: 0 1 auto;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  width: min(100%, 36rem);
   min-height: 0;
   margin: 0;
+}
+
+#portada-figura {
+  flex: 0 1 auto;
+  gap: 0.5rem;
+  width: min(100%, 36rem);
 }
 
 #whatsapp-pedido {
@@ -149,7 +149,7 @@ main {
   max-height: 42dvh;
 }
 
-#historia {
+#fruteria {
   display: none;
 }
 
@@ -164,7 +164,7 @@ main {
     align-self: center;
   }
 
-  #historia {
+  #fruteria {
     container-type: inline-size;
     display: flex;
     flex-direction: column;
@@ -207,18 +207,14 @@ main {
     width: clamp(3rem, 7cqi, 4rem);
     height: auto;
   }
-
-  #historia > figure {
-    display: flex;
+  
+  #fruteria-figura {
     flex: 0 0 auto;
-    flex-direction: column;
-    align-items: center;
     gap: 1rem;
     width: 100%;
-    margin: 0;
   }
 
-  #historia > figure picture {
+  #fruteria-foto {
     display: block;
     width: 100%;
   }
@@ -231,7 +227,7 @@ main {
     color: #fff9e6;
   }
 
-  #historia .descripcion {
+  #fruteria .descripcion {
     width: 100%;
     font-size: 1.1rem;
     font-size: clamp(1.1rem, 4cqi, 1.5rem);
@@ -271,7 +267,7 @@ main {
   .pedido-texto {
     display: block;
     flex: 0 0 auto;
-    color: #fff9e6;
+    color: #165126;
     font-size: clamp(0.875rem, 3vmin, 1.125rem);
     font-weight: 700;
     text-align: center;

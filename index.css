@@ -263,7 +263,7 @@ main {
   .pedido-texto {
     display: block;
     flex: 0 0 auto;
-    color: #165126;
+    color: #ffffff;
     font-size: clamp(0.875rem, 3vmin, 1.125rem);
     font-weight: 700;
     text-align: center;

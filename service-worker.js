@@ -1,11 +1,13 @@
-const CACHE_NAME = "fruteria-del-terreno-v";
+const CACHE_NAME = "fruteria-del-terreno-v2";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./index.css",
   "./app.js",
+  "./favicon.ico",
   "./manifest.webmanifest",
   "./icons/apple-touch-icon.png",
+  "./icons/favicon-32.png",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/icon-maskable-512.png",

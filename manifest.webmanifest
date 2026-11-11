@@ -1,10 +1,10 @@
 {
-  "id": "./",
+  "id": "https://fruteriadelterreno.com/",
   "name": "Frutería del Terreno",
   "short_name": "Frutería",
   "description": "Fruta de temporada en casa.",
-  "start_url": "./",
-  "scope": "./",
+  "start_url": "https://fruteriadelterreno.com/",
+  "scope": "https://fruteriadelterreno.com/",
   "display": "standalone",
   "background_color": "#d4c153",
   "theme_color": "#9b7e13",

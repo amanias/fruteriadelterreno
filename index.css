@@ -13,7 +13,11 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   margin: 0;
-  background-color: #9b7e13;
+  /* background-color: #9b7e13;  /* Color original de la página */
+  background-color: #d4c153;
+  /* background-color: #165126; /* Borde del logo */
+  /* background-color: #5b8c2c; /* Color del tema*/
+
   isolation: isolate;
 }
 
@@ -23,7 +27,7 @@ body::before {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-color: #9b7e13;
+  background-color: #d4c153;
   background-image: url("img/fondo-movil.jpg");
   background-image: image-set(url("img/fondo-movil.avif") type("image/avif"),
       url("img/fondo-movil.jpg") type("image/jpeg"));

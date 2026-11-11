@@ -2,11 +2,11 @@
   "id": "./",
   "name": "Frutería del Terreno",
   "short_name": "Frutería",
-  "description": "Naranjas de temporada en casa.",
+  "description": "Fruta de temporada en casa.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#9b7e13",
+  "background_color": "#d4c153",
   "theme_color": "#9b7e13",
   "icons": [
     {

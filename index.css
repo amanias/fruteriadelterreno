@@ -134,6 +134,10 @@ main {
   place-items: center;
 }
 
+.pedido-texto {
+  display: none;
+}
+
 .imagen {
   display: block;
   width: 100%;
@@ -240,6 +244,38 @@ main {
 (orientation: landscape) and (max-width: 64rem) and (max-height: 34rem) {
   .imagen {
     width: clamp(3rem, 12vmin, 5rem);
+  }
+}
+
+@media (max-height: 20rem) {
+  #whatsapp-pedido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  #whatsapp-pedido .imagen {
+    flex: 0 0 auto;
+    width: clamp(3rem, 12vmin, 5rem);
+    height: clamp(3rem, 12vmin, 5rem);
+  }
+
+  #whatsapp-pedido .imagen > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .pedido-texto {
+    display: block;
+    flex: 0 0 auto;
+    color: #fff9e6;
+    font-size: clamp(0.875rem, 3vmin, 1.125rem);
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 0 2px 4px rgb(0 0 0 / 85%);
   }
 }
 

@@ -147,7 +147,7 @@ main {
 
 #logotipo {
   display: block;
-  width: min(100%, 42dvh);
+  width: min(100%, 69dvh);
   height: auto;
   max-width: 100%;
   margin-inline: auto;
@@ -248,7 +248,14 @@ main {
     align-items: center;
     justify-content: center;
     gap: 0.25rem;
+    text-decoration: none;
   }
+
+#whatsapp-pedido.enlace:visited,
+#whatsapp-pedido.enlace:hover,
+#whatsapp-pedido.enlace:active {
+  text-decoration: none;
+}
 
   .imagen {
     width: clamp(3rem, 12vmin, 5rem);

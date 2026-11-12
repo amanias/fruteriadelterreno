@@ -93,6 +93,8 @@ main {
   text-align: center;
   text-shadow: 0 2px 4px rgb(0 0 0 / 85%);
   overflow-wrap: anywhere;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 #titulo {
@@ -147,7 +149,7 @@ main {
 
 #logotipo {
   display: block;
-  width: min(100%, 69dvh);
+  width: min(100%, 55dvh);
   height: auto;
   max-width: 100%;
   margin-inline: auto;

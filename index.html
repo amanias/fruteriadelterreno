@@ -8,25 +8,38 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Frutería">
   <title>Frutería del Terreno</title>
+  <meta name="description" content="Frutería del Terreno: Naranjas de mesa, naranjas de zumo, aguacates y mandarinas frescas desde la comarca de la Safor (Valencia) directo a tu casa en toda España.">
   <link rel="canonical" href="https://fruteriadelterreno.com/">
+    <!-- Vista previa al compartir en WhatsApp y Redes Sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Frutería del Terreno">
+  <meta property="og:title" content="Frutería del Terreno — Del Terreno a Casa">
+  <meta property="og:description" content="¡Desde la comarca de la Safor en Valencia! Naranjas de mesa, naranjas de zumo, aguacates y mandarinas a toda España. ¡Haz tu pedido por WhatsApp!">
+  <meta property="og:url" content="https://fruteriadelterreno.com/">
+  <meta property="og:image" content="https://fruteriadelterreno.com/img/logotipo-960.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="Logotipo de Frutería del Terreno">
+<!-- PWA-->
   <link rel="icon" href="./favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
   <link rel="stylesheet" href="index.css">
-  <script src="app.js" defer></script>
+  <script src="app.js" defer></script>  
 </head>
 
 <body>
   <main>
-    <section id="portada" class="panel" aria-labelledby="titulo">
+    <section id="portada" class="panel" aria-labelledby="Portada de Frutería del Terreno">
       <h1 id="titulo" class="texto">Frutería</h1>
-      <h2 id="subtitulo" class="texto">Del Terreno a Casa</h2>
+      <p id="subtitulo" class="texto">Del Terreno a Casa</p>
       <figure id="portada-figura" class="figura">
         <a id="whatsapp-pedido"
           target="_blank" rel="noopener noreferrer"
           href="https://wa.me/34642864749?text=Hola%20Javi%F0%9F%91%8B%20Gema%F0%9F%91%8B%0A%0A%F0%9F%8D%8A%F0%9F%8D%8A%F0%9F%8D%8A%20Quiero%20unas%20naranjitas%20en%20casa%20%F0%9F%8F%A1%0A%0AGracias%F0%9F%99%8F"
-          class="enlace" aria-label="Realizar pedido con Frutería del Terreno por WhatsApp">
+          class="enlace"
+          aria-label="Haz tu pedido por WhatsApp con Frutería del Terreno">
           <span class="pedido-texto">Haz tu pedido por WhatsApp</span>
           <picture class="imagen">
             <source
@@ -40,7 +53,7 @@
           </picture>           
         </a>
         <figcaption class="descripcion">
-          <p class="texto">¡Desde la comarca de la Safor en Valencia! 🍊 ¡Naranjas de mesa, naranjas de zumo, aguacates y mandarinas a toda España!</p>
+          <p class="texto">¡Desde la comarca de la Safor en Valencia! <span aria-hidden="true">🍊</span> ¡Naranjas de mesa, naranjas de zumo, aguacates y mandarinas a toda España!</p>
         </figcaption>
       </figure>
     </section>
@@ -50,8 +63,11 @@
         <a id="whatsapp"
           target="_blank" rel="noopener noreferrer"
           href="https://wa.me/34642864749?text=Hola%20Gema%F0%9F%91%8B%20Javi%F0%9F%91%8B%0A%0A%F0%9F%A4%A4%20Decirme%20algo%20rico%20para%20hoy!%0A%0AGracias%F0%9F%99%8F"
-          class="rrss-enlace" aria-label="Contactar por WhatsApp">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25D366" class="rrss-icono">
+          class="rrss-enlace"
+          aria-label="Contactar por WhatsApp">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24" fill="#25D366" class="rrss-icono"
+            aria-hidden="true">
             <path
               d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.966 0c3.179.001 6.169 1.24 8.419 3.496 2.248 2.256 3.483 5.252 3.483 8.441 0 6.566-5.34 11.914-11.908 11.914-.004 0-.008 0-.012 0-2.002-.001-3.972-.533-5.713-1.54L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.725 1.451 5.436 0 9.86-4.409 9.863-9.83.001-2.628-1.02-5.101-2.877-6.958C16.443 1.954 13.985.933 11.376.933c-5.438 0-9.863 4.412-9.866 9.831-.001 1.714.457 3.39 1.323 4.877L1.83 20.896l5.568-1.458zm8.845-5.922c-.208-.104-1.23-.608-1.42-.678-.19-.07-.33-.104-.469.104-.14.208-.538.678-.66.815-.121.139-.243.156-.45.052-.208-.104-.877-.323-1.672-1.03-.619-.553-1.036-1.237-1.157-1.446-.121-.208-.013-.321.092-.424.095-.093.208-.243.312-.365.104-.121.139-.208.208-.347.07-.14.035-.26-.017-.365-.052-.104-.469-1.128-.642-1.544-.168-.406-.352-.35-.484-.357-.125-.007-.269-.007-.413-.007-.144 0-.379.054-.577.269-.198.215-.756.739-.756 1.802 0 1.063.774 2.088.882 2.234.108.146 1.523 2.326 3.69 3.261.516.222.918.355 1.232.455.518.164.99.141 1.362.086.414-.061 1.23-.503 1.402-.99.172-.486.172-.903.121-.99-.051-.087-.19-.139-.397-.243z" />
           </svg>
@@ -60,7 +76,9 @@
           target="_blank" rel="noopener noreferrer"
           href="https://www.instagram.com/fruteriadelterreno/" class="rrss-enlace"
           aria-label="Seguir en Instagram">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FF0069" class="rrss-icono">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24" fill="#FF0069" class="rrss-icono"
+            aria-hidden="true">
             <defs>
               <radialGradient id="insta-grad" cx="20%" cy="100%" r="150%">
                 <stop offset="0%" stop-color="#fdf497" />
@@ -77,7 +95,9 @@
         <a id="facebook"
           target="_blank" rel="noopener noreferrer"
           href="https://www.facebook.com/jbalbastre" class="rrss-enlace" aria-label="Seguir en Facebook">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0866FF" class="rrss-icono">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24" fill="#0866FF" class="rrss-icono"
+            aria-hidden="true">
             <path
               d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" />
           </svg>

@@ -85,9 +85,14 @@
       </nav>
       <figure id="fruteria-figura" class="figura">
         <picture id="fruteria-foto" class="imagen">
-          <!-- <source type="image/avif" srcset="img/oferta.avif"> -->
-          <img class="foto" src="img/oferta.jpeg" alt="Oferta especial del día en frutas del terreno" width="720"
-            height="1280" loading="lazy" decoding="async">
+          <source type="image/avif"
+            srcset="img/hoy-480.avif 480w, img/hoy-960.avif 960w, img/hoy-1204.avif 1204w"
+            sizes="(orientation: landscape) calc(50vw - 3.25rem), (max-width: 64rem) calc(100vw - 3.5rem), 60rem">
+          <img class="foto" src="img/hoy.jpg"
+            srcset="img/hoy-480.jpg 480w, img/hoy-960.jpg 960w, img/hoy.jpg 1204w"
+            sizes="(orientation: landscape) calc(50vw - 3.25rem), (max-width: 64rem) calc(100vw - 3.5rem), 60rem"
+            alt="Foto de la oferta del día de Frutería del Terreno" width="1204" height="1600" loading="lazy"
+            decoding="async">
         </picture>
         <figcaption class="descripcion">
           <p class="texto">Oferta del día: ¡Llévate tu caja de temporada con envío incluido!</p>

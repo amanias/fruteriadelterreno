@@ -283,15 +283,3 @@ main {
     text-shadow: 0 2px 4px rgb(0 0 0 / 85%);
   }
 }
-
-/* ==========================================================================
-           LIMPIEZA DE INYECCIONES EXTERNAS (Netlify Badge)
-   ========================================================================== */
-#nl-badge-frame,
-.nl-wrap,
-[id*="netlify-badge"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}

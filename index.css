@@ -54,12 +54,11 @@ main {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: max-content;
-  align-content: center;
+  align-content: safe center;
   gap: 0.75rem;
-  height: 100vh;
-  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
   padding: 0.75rem;
-  overflow: hidden;
 }
 
 .panel {
@@ -156,7 +155,68 @@ main {
 }
 
 #fruteria {
-  display: none;
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
+.rrss {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.rrss-enlace {
+  display: grid;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.rrss-enlace:focus-visible {
+  outline: 3px solid #fff9e6;
+  outline-offset: 3px;
+}
+
+.rrss-icono {
+  display: block;
+  width: 3rem;
+  width: clamp(3rem, 7cqi, 4rem);
+  height: auto;
+}
+
+#fruteria-figura {
+  flex: 0 0 auto;
+  gap: 1rem;
+  width: 100%;
+}
+
+#fruteria-foto {
+  display: block;
+  width: 100%;
+}
+
+.foto {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  color: #fff9e6;
+}
+
+#fruteria .descripcion {
+  width: 100%;
+  font-size: 1.1rem;
+  font-size: clamp(1.1rem, 4cqi, 1.5rem);
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
 @media (orientation: landscape) {
@@ -164,6 +224,10 @@ main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: minmax(0, 1fr);
     align-content: stretch;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
   }
 
   #portada {
@@ -171,11 +235,6 @@ main {
   }
 
   #fruteria {
-    container-type: inline-size;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.75rem;
     overflow-x: hidden;
     overflow-y: auto;
     overscroll-behavior-y: contain;
@@ -184,62 +243,6 @@ main {
     scrollbar-color: rgb(255 249 230 / 70%) transparent;
   }
 
-  .rrss {
-    display: flex;
-    flex: 0 0 auto;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    width: 100%;
-  }
-
-  .rrss-enlace {
-    display: grid;
-    min-width: 2.75rem;
-    min-height: 2.75rem;
-    place-items: center;
-    border-radius: 50%;
-  }
-
-  .rrss-enlace:focus-visible {
-    outline: 3px solid #fff9e6;
-    outline-offset: 3px;
-  }
-
-  .rrss-icono {
-    display: block;
-    width: 3rem;
-    width: clamp(3rem, 7cqi, 4rem);
-    height: auto;
-  }
-  
-  #fruteria-figura {
-    flex: 0 0 auto;
-    gap: 1rem;
-    width: 100%;
-  }
-
-  #fruteria-foto {
-    display: block;
-    width: 100%;
-  }
-
-  .foto {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 0.75rem;
-    color: #fff9e6;
-  }
-
-  #fruteria .descripcion {
-    width: 100%;
-    font-size: 1.1rem;
-    font-size: clamp(1.1rem, 4cqi, 1.5rem);
-    text-align: center;
-    overflow-wrap: anywhere;
-  }
 }
 
 @media (orientation: portrait) and (max-height: 34rem),

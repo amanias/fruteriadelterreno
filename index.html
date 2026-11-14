@@ -22,20 +22,49 @@
   <meta property="og:image:width" content="1424">
   <meta property="og:image:height" content="747">
   <meta property="og:image:alt" content="Logotipo de Frutería del Terreno">
-<!-- PWA-->
+<!-- PWA -->
   <link rel="icon" href="./favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
   <link rel="stylesheet" href="index.css">
   <script src="app.js" defer></script>  
+  <!-- JSON-LD sirve como la ficha técnica oficial de tu negocio escrita en el idioma nativo de Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GroceryStore",
+    "name": "Frutería del Terreno",
+    "alternateName": "Frutería del Terreno — Del Terreno a Casa",
+    "description": "Frutería especializada en naranjas de mesa, naranjas de zumo, aguacates y mandarinas frescas desde la comarca de la Safor (Gandía, Valencia) directo a casa en toda España.",
+    "url": "https://fruteriadelterreno.com/",
+    "logo": "https://fruteriadelterreno.com/img/logotipo-960.jpg",
+    "image": "https://fruteriadelterreno.com/img/og-portada.jpg",
+    "telephone": "+34642864749",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Gandía",
+      "addressRegion": "Valencia",
+      "addressCountry": "ES"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "España"
+    },
+    "sameAs": [
+      "https://www.instagram.com/fruteriadelterreno/",
+      "https://www.facebook.com/jbalbastre"
+    ]
+  }
+  </script>
+
 </head>
 
 <body>
   <main>
     <section id="portada" class="panel" aria-labelledby="Portada de Frutería del Terreno">
       <h1 id="titulo" class="texto">Frutería</h1>
-      <p id="subtitulo" class="texto">Del Terreno a Casa</p>
+      <h2 id="subtitulo" class="texto">Del Terreno a Casa</h2>
       <figure id="portada-figura" class="figura">
         <a id="whatsapp-pedido"
           target="_blank" rel="noopener noreferrer"

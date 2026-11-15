@@ -1,4 +1,4 @@
-const CACHE_NAME = "fruteria-del-terreno-v4";
+const CACHE_NAME = "fruteria-del-terreno-v5";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -21,12 +21,13 @@ const APP_SHELL = [
   "./img/logotipo-480.jpg",
   "./img/logotipo-960.avif",
   "./img/logotipo-960.jpg",
-  "./img/hoy.jpg",
-  "./img/hoy-480.jpg",
-  "./img/hoy-960.jpg",
-  "./img/hoy-480.avif",
-  "./img/hoy-960.avif",
-  "./img/hoy-1204.avif",
+  "./img/sugerencia-del-dia.jpg",
+  "./img/sugerencia-del-dia-480.jpg",
+  "./img/sugerencia-del-dia-960.jpg",
+  "./img/sugerencia-del-dia-1204.jpg",
+  "./img/sugerencia-del-dia-480.avif",
+  "./img/sugerencia-del-dia-960.avif",
+  "./img/sugerencia-del-dia-1204.avif",
   "./img/whatsapp.svg"
 ];
 

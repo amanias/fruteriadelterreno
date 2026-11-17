@@ -1,4 +1,4 @@
-const CACHE_NAME = "fruteria-del-terreno-v7";
+const CACHE_NAME = "fruteria-del-terreno-v8";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -34,7 +34,10 @@ const APP_SHELL = [
 self.addEventListener("install", (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
-    await cache.addAll(APP_SHELL);
+    const requests = APP_SHELL.map((path) =>
+      new Request(new URL(path, self.registration.scope), { cache: "reload" })
+    );
+    await cache.addAll(requests);
     await self.skipWaiting();
   })());
 });

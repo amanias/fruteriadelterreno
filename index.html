@@ -61,7 +61,7 @@
 
 <body>
   <main>
-    <section id="portada" class="panel" aria-labelledby="Portada de Frutería del Terreno">
+    <section id="portada" class="panel" aria-label="Portada de Frutería del Terreno">
       <h1 id="titulo" class="texto">Frutería</h1>
       <h2 id="subtitulo" class="texto">Del Terreno a Casa</h2>
       <figure id="portada-figura" class="figura">
@@ -74,16 +74,16 @@
           <picture class="imagen">
             <source
               media="(orientation: portrait) and (max-height: 34rem), (orientation: landscape) and (max-width: 64rem) and (max-height: 34rem)"
-              type="image/svg+xml" srcset="img/whatsapp.svg">
+              type="image/svg+xml" srcset="img/whatsapp.svg" width="24" height="24">
             <source type="image/avif" srcset="img/logotipo-480.avif 480w, img/logotipo-960.avif 960w"
               sizes="(orientation: landscape) calc(50vw - 3.25rem), (max-width: 64rem) calc(100vw - 3.5rem), 60rem">
             <img id="logotipo" class="foto" src="img/logotipo-960.jpg" srcset="img/logotipo-480.jpg 480w, img/logotipo-960.jpg 960w"
               sizes="(orientation: landscape) calc(50vw - 3.25rem), (max-width: 64rem) calc(100vw - 3.5rem), 60rem"
-              alt="Logotipo de Frutería del Terreno" fetchpriority="high">
-          </picture>           
+              alt="Logotipo de Frutería del Terreno" width="960" height="960"fetchpriority="high">
+          </picture>
         </a>
         <figcaption class="descripcion">
-          <p class="texto">¡Desde la comarca de la Safor en Gandía, Valencia! <span aria-hidden="true">🍊</span> ¡Naranjas de mesa, naranjas de zumo, aguacates y mandarinas a toda España!</p>
+          <p class="texto">¡Desde la comarca de la Safor, en Gandía, Valencia! <span aria-hidden="true">🍊</span> ¡Naranjas de mesa, naranjas de zumo, aguacates y mandarinas a toda España!</p>
         </figcaption>
       </figure>
     </section>
@@ -145,7 +145,7 @@
             decoding="async">
         </picture>
         <figcaption class="descripcion">
-          <p class="texto">🍆🍆Berenjena rayada del terreno🍆🍆¡Noviembre y aún sacamos berenjenas tiernas!🍆🍆</p>
+          <p id="fruteria-sugerencia" class="texto">🍆🍆Berenjena rayada del terreno🍆🍆¡Noviembre y aún sacamos berenjenas tiernas!🍆🍆</p>
         </figcaption>
       </figure>
     </article>

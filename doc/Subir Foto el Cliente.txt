@@ -1,3 +1,13 @@
+========================================================================================================================================================================================================================================================================================================================
+
+Para ir sobre seguro y ver resultados desde el primer día sin enredarnos, el orden más lógico y didáctico de construcción es este:
+
+1. Paso 1 — El motor automático en GitHub (GitHub Actions): Empezamos por aquí porque puedes probarlo tú mismo subiendo una foto cualquiera al repositorio. Verás cómo GitHub la convierte solo a las 7 variantes (480, 960, 1204 en .avif y .jpg), cambia el texto y actualiza width/height y el alt en tu index.html.
+2. Paso 2 — La caché de la PWA: Una vez que el HTML cambia solo, revisamos tu Service Worker (o archivo de versión) para asegurarnos de que cuando un móvil abra la web, descargue la foto nueva sin quedarse atascado en la de ayer.
+3. Paso 3 — El puente seguro (Cloudflare Worker): Creamos un pequeño intermediario gratuito para que se pueda subir la foto y el texto desde fuera sin tener que entrar en GitHub.
+4. Paso 4 — La pantalla móvil para el frutero: Por último, hacemos una página limpia y grande para el móvil (con botón de cámara, vista previa y campo de texto) conectada al puente del Paso 3.
+
+========================================================================================================================================================================================================================================================================================================================
 
 Paso 1.1: Crea la rama pruebas-auto en VS Code
 
@@ -187,3 +197,53 @@ Paso 1.3: ¡La prueba de fuego!
 4. Entra en tu repositorio en GitHub.com -> pestaña Actions y mira cómo el robot trabaja en directo (tardará unos 25 segundos). Al terminar, haz Pull en VS Code y verás tus 7 fotos nuevas en img/ y tu index.html actualizado solo.
 (Importante: verifica en GitHub.com -> Settings > Actions > General > Workflow permissions que esté marcada la casilla Read and write permissions).
 Pruébalo en tu rama pruebas-auto y dime qué tal sale la ejecución en la pestaña Actions de GitHub.
+
+----
+====
+----
+
+Paso 2: Cómo hacer que los móviles y navegadores refresquen las fotos nuevas solos
+
+Para que ni tú ni tus clientes tengáis que abrir en incógnito ni borrar datos del navegador cada vez que subas una foto:
+
+En tu scripts/actualizar.js, justo antes de console.log('Actualización completada...'), añade este bloque que cambia "fruteria-del-terreno-v8" por la fecha y hora exacta ("fruteria-del-terreno-20261118-0451"):
+
+Paso 2.1 Actualizar mi service-worker.js con el sello de fecha y hora para obligar a que las APPs se actulicen. Para ello añadimos el actualizar.js
+
+  // 3. Actualizar la versión de caché en service-worker.js
+  const swPath = 'service-worker.js';
+  const swContenido = await fs.readFile(swPath, 'utf-8');
+  const marcaTiempo = new Intl.DateTimeFormat('sv-SE', {
+  timeZone: 'Europe/Madrid',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit'
+  }).format(new Date()).replace(/[-: ]/g, '');
+
+  const swActualizado = swContenido.replace(
+    /const CACHE_NAME = "fruteria-del-terreno-[^"]+";/,
+    `const CACHE_NAME = "fruteria-del-terreno-${marcaTiempo}";`
+  );
+  await fs.writeFile(swPath, swActualizado, 'utf-8');
+
+Paso 2.2  Añadir service-worker.js modificado al git add del .yml.
+
+(Como tu .github/workflows/actualizar-sugerencia.yml ya tiene git add -A, guardará automáticamente img/, index.html y service-worker.js en el mismo commit).
+
+      - name: Guardar cambios en el repositorio
+        run: |
+          git config --local user.email "bot@fruteriadelterreno.com"
+          git config --local user.name "Robot Frutería"
+          git add -A
+          git commit -m "chore: actualizar sugerencia del día automáticamente" || exit 0
+          git push
+
+----
+====
+----
+
+• Paso 3: El puente gratuito y seguro en Cloudflare Worker para conectar con GitHub sin exponer claves.
+• Paso 4: La pantalla sencilla para el móvil del frutero (cámara/galería + caja de texto) conectada al puente del Paso 3.

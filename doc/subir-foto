@@ -147,7 +147,7 @@ jobs:
 
       - name: Guardar cambios en el repositorio
         run: |
-          git config --local user.email "bot@fruteriadelterreno.es"
+          git config --local user.email "bot@fruteriadelterreno.com"
           git config --local user.name "Robot Frutería"
           git add -A
           git commit -m "chore: actualizar sugerencia del día automáticamente" || exit 0

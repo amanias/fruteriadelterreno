@@ -73,7 +73,7 @@ async function main() {
 
   await fs.writeFile(HTML_FILE, $.html(), 'utf-8');
 
-    // 3. Actualizar la versión de caché en service-worker.js
+  // 3. Actualizar la versión de caché en service-worker.js
   const swPath = 'service-worker.js';
   const swContenido = await fs.readFile(swPath, 'utf-8');
   const marcaTiempo = new Intl.DateTimeFormat('sv-SE', {

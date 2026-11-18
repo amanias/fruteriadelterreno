@@ -76,7 +76,7 @@ async function main() {
     // 3. Actualizar la versión de caché en service-worker.js
   const swPath = 'service-worker.js';
   const swContenido = await fs.readFile(swPath, 'utf-8');
-  const marcaTiempo = new Date().toISOString().replace(/[-:T]/g, '').slice(0, 12); // Ej: 202611180451
+  const marcaTiempo = new Date().Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Madrid' }).replace(/[-:T]/g, '').slice(0, 12); // Ej: 202611180451
   const swActualizado = swContenido.replace(
     /const CACHE_NAME = "fruteria-del-terreno-[^"]+";/,
     `const CACHE_NAME = "fruteria-del-terreno-${marcaTiempo}";`

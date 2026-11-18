@@ -1,4 +1,4 @@
-const CACHE_NAME = "fruteria-del-terreno-202611180539";
+const CACHE_NAME = "fruteria-del-terreno-202611180543";
 const APP_SHELL = [
   "./",
   "./index.html",

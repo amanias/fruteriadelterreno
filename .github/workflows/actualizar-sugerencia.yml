@@ -33,6 +33,6 @@ jobs:
         run: |
           git config --local user.email "bot@fruteriadelterreno.es"
           git config --local user.name "Robot Frutería"
-          git add img/ index.html
+          git add -A
           git commit -m "chore: actualizar sugerencia del día automáticamente" || exit 0
           git push

@@ -37,13 +37,13 @@ const IMG_DIR = 'img';
 const HTML_FILE = 'index.html';
 
 async function main() {
-  // 1. Buscar la foto nueva y el archivo de texto en la carpeta entrada/
+  // 1. Buscar la foto nueva y el archivo de texto en img/sugerencias/
   const archivos = await fs.readdir(ENTRADA_DIR);
   const fotoArchivo = archivos.find((f) => /\.(jpe?g|png|webp|heic|heif|avif)$/i.test(f));
   const textoArchivo = archivos.find((f) => f === 'descripcion.txt');
 
   if (!fotoArchivo) {
-    console.log('No hay foto nueva en entrada/. Saliendo.');
+    console.log('No hay foto nueva en img/sugerencias/. Saliendo.');
     return;
   }
 
@@ -64,21 +64,18 @@ async function main() {
   let altoFinal = 1599;
 
   for (const ancho of tamanos) {
-    // Guardar AVIF
     await imagenBase
       .clone()
       .resize({ width: ancho, withoutEnlargement: false })
       .avif({ quality: 65 })
       .toFile(path.join(IMG_DIR, `sugerencia-del-dia-${ancho}.avif`));
 
-    // Guardar JPG
     const infoJpg = await imagenBase
       .clone()
       .resize({ width: ancho, withoutEnlargement: false })
       .jpeg({ quality: 82, mozjpeg: true })
       .toFile(path.join(IMG_DIR, `sugerencia-del-dia-${ancho}.jpg`));
 
-    // Si es la versión de 1204px, guardamos también la copia base y sus dimensiones reales
     if (ancho === 1204) {
       altoFinal = infoJpg.height;
       await fs.copyFile(
@@ -88,24 +85,37 @@ async function main() {
     }
   }
 
-  // 4. Actualizar index.html manteniendo toda tu estructura intacta
+  // 4. Actualizar index.html
   const htmlOriginal = await fs.readFile(HTML_FILE, 'utf-8');
   const $ = cheerio.load(htmlOriginal, { decodeEntities: false });
 
-  // Actualizar párrafo visible con sus emojis
+  // Párrafo visible con sus emojis intactos
   $('#fruteria-sugerencia').text(descripcion);
 
-  // Limpiar emojis para el atributo alt (mejor SEO y accesibilidad)
-  const altLimpio = descripcion.replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, ' ').replace(/\s+/g, ' ').trim();
+  // Construir un alt seguro y coherente para SEO
+  const textoSinEmojis = descripcion
+    .replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 
-  // Actualizar atributos de la imagen
+  const altFinal = textoSinEmojis.length >= 10
+    ? `Sugerencia del día: ${textoSinEmojis}`
+    : 'Sugerencia del día en Frutería del Terreno';
+
   const $img = $('#fruteria-foto img');
-  $img.attr('alt', altLimpio || 'Sugerencia del día en Frutería del Terreno');
+  $img.attr('alt', altFinal);
   $img.attr('width', String(anchoFinal));
   $img.attr('height', String(altoFinal));
 
   await fs.writeFile(HTML_FILE, $.html(), 'utf-8');
-  console.log(`Actualizado: ${anchoFinal}x${altoFinal} - "${descripcion}"`);
+
+  // 5. Borrar los archivos temporales de img/sugerencias/
+  await fs.unlink(rutaFoto);
+  if (textoArchivo) {
+    await fs.unlink(path.join(ENTRADA_DIR, textoArchivo));
+  }
+
+  console.log(`Actualizado y limpiado: ${anchoFinal}x${altoFinal} - "${altFinal}"`);
 }
 
 main().catch((err) => {
@@ -152,7 +162,7 @@ jobs:
         run: |
           git config --local user.email "bot@fruteriadelterreno.es"
           git config --local user.name "Robot Frutería"
-          git add img/ index.html
+          git add -A
           git commit -m "chore: actualizar sugerencia del día automáticamente" || exit 0
           git push
 

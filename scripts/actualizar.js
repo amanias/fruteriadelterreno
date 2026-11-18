@@ -20,7 +20,7 @@ async function main() {
   let anchoFinal = null;
   let altoFinal = null;
 
-  // 1. Si hay foto nueva, generar las 7 variantes y borrar la original de entrada
+  // 1. Si hay foto nueva, generar las 7 variantes
   if (fotoArchivo) {
     const rutaFoto = path.join(ENTRADA_DIR, fotoArchivo);
     const imagenBase = sharp(rutaFoto).rotate();
@@ -30,13 +30,13 @@ async function main() {
       await imagenBase
         .clone()
         .resize({ width: ancho, withoutEnlargement: false })
-        .avif({ quality: 65 })
+        .avif({ quality: 69 })
         .toFile(path.join(IMG_DIR, `sugerencia-del-dia-${ancho}.avif`));
 
       const infoJpg = await imagenBase
         .clone()
         .resize({ width: ancho, withoutEnlargement: false })
-        .jpeg({ quality: 82, mozjpeg: true })
+        .jpeg({ quality: 88, mozjpeg: true })
         .toFile(path.join(IMG_DIR, `sugerencia-del-dia-${ancho}.jpg`));
 
       if (ancho === 1204) {
@@ -49,10 +49,9 @@ async function main() {
       }
     }
 
-    await fs.unlink(rutaFoto);
   }
 
-  // 2. Actualizar index.html respetando el alt original
+  // 2. Actualizar index.html
   const htmlOriginal = await fs.readFile(HTML_FILE, 'utf-8');
   const $ = cheerio.load(htmlOriginal, { decodeEntities: false });
 
@@ -62,7 +61,6 @@ async function main() {
     if (contenido.trim()) {
       $('#fruteria-sugerencia').text(contenido.trim());
     }
-    await fs.unlink(rutaTexto);
   }
 
   if (anchoFinal && altoFinal) {
@@ -82,13 +80,23 @@ async function main() {
   month: '2-digit',
   day: '2-digit',
   hour: '2-digit',
-  minute: '2-digit'
+  minute: '2-digit',
+  second: '2-digit'
   }).format(new Date()).replace(/[-: ]/g, '');
+
   const swActualizado = swContenido.replace(
     /const CACHE_NAME = "fruteria-del-terreno-[^"]+";/,
     `const CACHE_NAME = "fruteria-del-terreno-${marcaTiempo}";`
   );
   await fs.writeFile(swPath, swActualizado, 'utf-8');
+
+  // 4. Limpiar TODOS los archivos temporales de img/sugerencias/ (dejando solo .gitkeep)
+  const restantes = await fs.readdir(ENTRADA_DIR);
+  for (const archivo of restantes) {
+    if (archivo !== '.gitkeep') {
+      await fs.unlink(path.join(ENTRADA_DIR, archivo));
+    }
+  }
 
   console.log('Actualización completada y carpeta img/sugerencias limpia.');
 }

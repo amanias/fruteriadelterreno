@@ -1,0 +1,38 @@
+name: Actualizar sugerencia del día
+
+on:
+  push:
+    branches:
+      - subir-foto
+    paths:
+      - 'img/sugerencias/**'
+
+permissions:
+  contents: write
+
+jobs:
+  procesar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependencias (sharp y cheerio)
+        working-directory: ./scripts
+        run: npm install
+
+      - name: Convertir foto y actualizar HTML
+        run: node scripts/actualizar.js
+
+      - name: Guardar cambios en el repositorio
+        run: |
+          git config --local user.email "bot@fruteriadelterreno.es"
+          git config --local user.name "Robot Frutería"
+          git add img/ index.html
+          git commit -m "chore: actualizar sugerencia del día automáticamente" || exit 0
+          git push

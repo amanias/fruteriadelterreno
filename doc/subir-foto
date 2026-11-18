@@ -1,0 +1,167 @@
+
+Paso 1.1: Crea la rama pruebas-auto en VS Code
+
+1. En tu VS Code, haz clic abajo a la izquierda donde pone main (junto al icono de ramas).
+2. Selecciona Crear nueva rama... (Create new branch...), llámala pruebas-auto y pulsa Enter.
+3. Publica la rama en GitHub haciendo clic en el icono de nube/sincronizar de abajo a la izquierda.
+
+Paso 1.2: Crea los 3 archivos del motor
+
+
+Archivo 1: scripts/package.json
+
+Crea una carpeta llamada scripts en la raíz de tu proyecto y dentro mete este archivo para indicar las dos herramientas que usará Node.js (sharp para las imágenes y cheerio para editar el HTML):
+
+{
+  "name": "fruteria-automatizacion",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "sharp": "^0.33.5"
+  }
+}
+
+
+Archivo 2: scripts/actualizar.js
+
+Dentro de la misma carpeta scripts, crea actualizar.js. Este es el cerebro que lee la foto y el texto que subas a la carpeta entrada/, genera las 7 fotos en img/ y actualiza tu index.html:
+
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import sharp from 'sharp';
+import * as cheerio from 'cheerio';
+
+const ENTRADA_DIR = 'img/sugerencias';
+const IMG_DIR = 'img';
+const HTML_FILE = 'index.html';
+
+async function main() {
+  // 1. Buscar la foto nueva y el archivo de texto en la carpeta entrada/
+  const archivos = await fs.readdir(ENTRADA_DIR);
+  const fotoArchivo = archivos.find((f) => /\.(jpe?g|png|webp|heic|heif|avif)$/i.test(f));
+  const textoArchivo = archivos.find((f) => f === 'descripcion.txt');
+
+  if (!fotoArchivo) {
+    console.log('No hay foto nueva en entrada/. Saliendo.');
+    return;
+  }
+
+  const rutaFoto = path.join(ENTRADA_DIR, fotoArchivo);
+  let descripcion = 'Sugerencia del día en Frutería del Terreno';
+
+  if (textoArchivo) {
+    const contenido = await fs.readFile(path.join(ENTRADA_DIR, textoArchivo), 'utf-8');
+    if (contenido.trim()) descripcion = contenido.trim();
+  }
+
+  // 2. Preparar la imagen base (corrige rotación automática del móvil)
+  const imagenBase = sharp(rutaFoto).rotate();
+
+  // 3. Generar los 3 tamaños (480, 960, 1204) en AVIF y JPG
+  const tamanos = [480, 960, 1204];
+  let anchoFinal = 1204;
+  let altoFinal = 1599;
+
+  for (const ancho of tamanos) {
+    // Guardar AVIF
+    await imagenBase
+      .clone()
+      .resize({ width: ancho, withoutEnlargement: false })
+      .avif({ quality: 65 })
+      .toFile(path.join(IMG_DIR, `sugerencia-del-dia-${ancho}.avif`));
+
+    // Guardar JPG
+    const infoJpg = await imagenBase
+      .clone()
+      .resize({ width: ancho, withoutEnlargement: false })
+      .jpeg({ quality: 82, mozjpeg: true })
+      .toFile(path.join(IMG_DIR, `sugerencia-del-dia-${ancho}.jpg`));
+
+    // Si es la versión de 1204px, guardamos también la copia base y sus dimensiones reales
+    if (ancho === 1204) {
+      altoFinal = infoJpg.height;
+      await fs.copyFile(
+        path.join(IMG_DIR, 'sugerencia-del-dia-1204.jpg'),
+        path.join(IMG_DIR, 'sugerencia-del-dia.jpg')
+      );
+    }
+  }
+
+  // 4. Actualizar index.html manteniendo toda tu estructura intacta
+  const htmlOriginal = await fs.readFile(HTML_FILE, 'utf-8');
+  const $ = cheerio.load(htmlOriginal, { decodeEntities: false });
+
+  // Actualizar párrafo visible con sus emojis
+  $('#fruteria-sugerencia').text(descripcion);
+
+  // Limpiar emojis para el atributo alt (mejor SEO y accesibilidad)
+  const altLimpio = descripcion.replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, ' ').replace(/\s+/g, ' ').trim();
+
+  // Actualizar atributos de la imagen
+  const $img = $('#fruteria-foto img');
+  $img.attr('alt', altLimpio || 'Sugerencia del día en Frutería del Terreno');
+  $img.attr('width', String(anchoFinal));
+  $img.attr('height', String(altoFinal));
+
+  await fs.writeFile(HTML_FILE, $.html(), 'utf-8');
+  console.log(`Actualizado: ${anchoFinal}x${altoFinal} - "${descripcion}"`);
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+Archivo 3: .github/workflows/actualizar-sugerencia.yml
+
+Crea la carpeta .github (con un punto delante), dentro workflows, y dentro el archivo actualizar-sugerencia.yml:
+
+name: Actualizar sugerencia del día
+
+on:
+  push:
+    branches:
+      - subir-foto
+    paths:
+      - 'img/sugerencias/**'
+
+permissions:
+  contents: write
+
+jobs:
+  procesar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependencias (sharp y cheerio)
+        working-directory: ./scripts
+        run: npm install
+
+      - name: Convertir foto y actualizar HTML
+        run: node scripts/actualizar.js
+
+      - name: Guardar cambios en el repositorio
+        run: |
+          git config --local user.email "bot@fruteriadelterreno.es"
+          git config --local user.name "Robot Frutería"
+          git add img/ index.html
+          git commit -m "chore: actualizar sugerencia del día automáticamente" || exit 0
+          git push
+
+
+Paso 1.3: ¡La prueba de fuego!
+
+1. Crea una carpeta llamada entrada en la raíz de tu proyecto.
+2. Mete dentro cualquier foto tuya (por ejemplo prueba.jpg) y un archivo de texto descripcion.txt con una frase nueva (ej. 🍊🍊Naranjas recién cogidas del árbol hoy mismo🍊🍊).
+3. Haz Commit y Push a la rama pruebas-auto.
+4. Entra en tu repositorio en GitHub.com -> pestaña Actions y mira cómo el robot trabaja en directo (tardará unos 25 segundos). Al terminar, haz Pull en VS Code y verás tus 7 fotos nuevas en img/ y tu index.html actualizado solo.
+(Importante: verifica en GitHub.com -> Settings > Actions > General > Workflow permissions que esté marcada la casilla Read and write permissions).
+Pruébalo en tu rama pruebas-auto y dime qué tal sale la ejecución en la pestaña Actions de GitHub.

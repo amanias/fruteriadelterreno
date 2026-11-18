@@ -3,7 +3,7 @@ name: Actualizar sugerencia del día
 on:
   push:
     branches:
-      - subir-foto
+      - main
     paths:
       - 'img/sugerencias/**'
 

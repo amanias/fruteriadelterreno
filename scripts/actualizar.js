@@ -72,6 +72,17 @@ async function main() {
   }
 
   await fs.writeFile(HTML_FILE, $.html(), 'utf-8');
+
+    // 3. Actualizar la versión de caché en service-worker.js
+  const swPath = 'service-worker.js';
+  const swContenido = await fs.readFile(swPath, 'utf-8');
+  const marcaTiempo = new Date().toISOString().replace(/[-:T]/g, '').slice(0, 12); // Ej: 202611180451
+  const swActualizado = swContenido.replace(
+    /const CACHE_NAME = "fruteria-del-terreno-[^"]+";/,
+    `const CACHE_NAME = "fruteria-del-terreno-${marcaTiempo}";`
+  );
+  await fs.writeFile(swPath, swActualizado, 'utf-8');
+
   console.log('Actualización completada y carpeta img/sugerencias limpia.');
 }
 

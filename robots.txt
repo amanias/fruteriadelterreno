@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://fruteriadelterreno.com/sitemap.xml
+Disallow: /

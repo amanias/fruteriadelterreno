@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+
+Host: https://fruteriadelterreno.com
+Sitemap: https://fruteriadelterreno.com/sitemap.xml

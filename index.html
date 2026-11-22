@@ -3,6 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#9b7e13">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Frutería">
   <title>Frutería del Terreno | Naranjas de Valencia y Fruta Fresca de Gandía a Casa</title>
   <meta name="description" content="Naranjas de Valencia de mesa y zumo, mandarinas, aguacates y verdura fresca desde Gandía (la Safor) directo a tu casa en toda España.">
@@ -19,7 +20,7 @@
   <meta property="og:image:width" content="1424">
   <meta property="og:image:height" content="747">
   <meta property="og:image:alt" content="Logotipo de Frutería del Terreno">
-<!-- PWA -->
+  <!-- PWA -->
   <link rel="icon" href="./favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png">
   <link rel="manifest" href="manifest.webmanifest">
@@ -27,7 +28,7 @@
   <link rel="stylesheet" href="index.css">
   <script src="app.js" defer=""></script>  
   <!-- JSON-LD sirve como la ficha técnica oficial de tu negocio escrita en el idioma nativo de Google -->
-    <script type="application/ld+json">
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "GroceryStore",
@@ -38,6 +39,7 @@
     "logo": "https://fruteriadelterreno.com/icons/logotipo.jpg",
     "image": "https://fruteriadelterreno.com/icons/og-logotipo.jpg",
     "telephone": "+34642864749",
+    "hasMap": "https://maps.app.goo.gl/Nt9PwVpWxotfn4Rv8",
     "priceRange": "€",
     "address": {
       "@type": "PostalAddress",
@@ -52,6 +54,40 @@
       "latitude": 38.9942,
       "longitude": -0.1636
     },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "14:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "16:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "08:00",
+        "closes": "14:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "08:00",
+        "closes": "20:00",
+        "validFrom": "2026-05-01",
+        "validThrough": "2026-09-30"
+      }
+    ],    
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+34642864749",
+      "contactType": "customer service",
+      "availableLanguage": "Spanish"
+    },    
     "areaServed": [
       { "@type": "Country", "name": "España" },
       { "@type": "AdministrativeArea", "name": "Valencia" },
@@ -96,7 +132,7 @@
     </section>
 
     <article id="fruteria" class="panel" aria-label="Historia diaria de la frutería">
-      <nav class="rrss" aria-label="Redes sociales y contacto">
+      <nav class="rrss" aria-label="Redes sociales, ubicación y contacto">
         <a id="whatsapp" target="_blank" rel="noopener noreferrer" href="https://wa.me/34642864749?text=Hola%20Gema%F0%9F%91%8B%20Javi%F0%9F%91%8B%0A%0A%F0%9F%A4%A4%20Decirme%20algo%20rico%20para%20hoy!%0A%0AGracias%F0%9F%99%8F" class="rrss-enlace" aria-label="Contactar por WhatsApp">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25D366" class="rrss-icono" aria-hidden="true">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.966 0c3.179.001 6.169 1.24 8.419 3.496 2.248 2.256 3.483 5.252 3.483 8.441 0 6.566-5.34 11.914-11.908 11.914-.004 0-.008 0-.012 0-2.002-.001-3.972-.533-5.713-1.54L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.725 1.451 5.436 0 9.86-4.409 9.863-9.83.001-2.628-1.02-5.101-2.877-6.958C16.443 1.954 13.985.933 11.376.933c-5.438 0-9.863 4.412-9.866 9.831-.001 1.714.457 3.39 1.323 4.877L1.83 20.896l5.568-1.458zm8.845-5.922c-.208-.104-1.23-.608-1.42-.678-.19-.07-.33-.104-.469.104-.14.208-.538.678-.66.815-.121.139-.243.156-.45.052-.208-.104-.877-.323-1.672-1.03-.619-.553-1.036-1.237-1.157-1.446-.121-.208-.013-.321.092-.424.095-.093.208-.243.312-.365.104-.121.139-.208.208-.347.07-.14.035-.26-.017-.365-.052-.104-.469-1.128-.642-1.544-.168-.406-.352-.35-.484-.357-.125-.007-.269-.007-.413-.007-.144 0-.379.054-.577.269-.198.215-.756.739-.756 1.802 0 1.063.774 2.088.882 2.234.108.146 1.523 2.326 3.69 3.261.516.222.918.355 1.232.455.518.164.99.141 1.362.086.414-.061 1.23-.503 1.402-.99.172-.486.172-.903.121-.99-.051-.087-.19-.139-.397-.243z"></path>
